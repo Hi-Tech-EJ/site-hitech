@@ -338,8 +338,18 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
       height: 8px;
     }
 
-    &:hover {
-      transform: translateY(-6px);
+    /* no toque o :hover fica grudado no ultimo card tocado; la quem sobe e o
+       card em destaque (.is-active, marcado pelo componente) */
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      &.is-active {
+        transform: translateY(-6px);
+      }
     }
 
     @media (max-width: 480px) {
@@ -370,18 +380,30 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
         background: $accent;
       }
 
-      &:hover {
-        box-shadow: 12px 14px 0 $accent;
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: 12px 14px 0 $accent;
+        }
+      }
+
+      @media (max-width: 768px) {
+        &.is-active {
+          box-shadow: 12px 14px 0 $accent;
+        }
       }
 
       @media (max-width: 480px) {
         box-shadow: 5px 6px 0 $accent;
+
+        &.is-active {
+          box-shadow: 8px 10px 0 $accent;
+        }
       }
     }
   }
 
   .review-text {
-    margin: 0;
+    margin: 0 0 18px;
     font-size: 14px;
     line-height: 1.7;
     color: $color-sectenary;
@@ -494,9 +516,18 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
           border: 2.5px solid #000000;
           border-radius: 12px;
           box-shadow: 4px 4px 0px #000000;
-          transition: transform 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-          &:hover {
+          @media (hover: hover) {
+            &:hover {
+              transform: translateY(-4px);
+              box-shadow: 6px 6px 0px #000000;
+            }
+          }
+        }
+
+        @media (max-width: 768px), (hover: none) {
+          &.is-active img {
             transform: translateY(-4px);
             box-shadow: 6px 6px 0px #000000;
           }

@@ -18,6 +18,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   templateText: any = {};
 
   @ViewChild('carousel') carousel!: ElementRef;
+  @ViewChild('reviewGrid') reviewGrid!: ElementRef;
 
   form: FormGroup;
   isLoading = false;
@@ -33,6 +34,9 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     { url: 'assets/events/foto4.jpg', title: 'Hi Tech no ECOAR — Curitiba Júnior' },
     { url: 'assets/events/foto3.jpg', title: 'Think high, think tech' }
   ];
+
+  /** Desfaz os listeners de scroll que marcam o card em destaque. */
+  private stopTrackingActive: Array<() => void> = [];
 
   /** Autoplay do carrossel: so roda no celular (ver ngAfterViewInit). */
   private autoplayTimer?: ReturnType<typeof setInterval>;
@@ -62,6 +66,9 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
+    this.trackActiveCard(this.reviewGrid?.nativeElement, '.review-card');
+    this.trackActiveCard(this.carousel?.nativeElement, '.event-card');
+
     // quem pediu menos animacao no sistema nao recebe autoplay
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
@@ -73,11 +80,57 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.stopTrackingActive.forEach((stop) => stop());
     this.stopAutoplay();
     if (this.resumeTimer) {
       clearTimeout(this.resumeTimer);
     }
     this.mobileQuery?.removeEventListener('change', this.onBreakpointChange);
+  }
+
+  /**
+   * Marca com `.is-active` o card mais proximo do centro do container que
+   * rola. No toque nao ha hover, entao e esse card que "levanta". O CSS so
+   * aplica o estilo em telas estreitas ou sem hover; no desktop a classe
+   * existe mas nao muda nada.
+   */
+  private trackActiveCard(container: HTMLElement | undefined, selector: string): void {
+    if (!container) {
+      return;
+    }
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const cards = Array.from(container.querySelectorAll<HTMLElement>(selector));
+      const box = container.getBoundingClientRect();
+      const center = box.left + box.width / 2;
+      let active: HTMLElement | undefined;
+      let best = Infinity;
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.left + rect.width / 2 - center);
+        if (distance < best) {
+          best = distance;
+          active = card;
+        }
+      }
+      cards.forEach((card) => card.classList.toggle('is-active', card === active));
+    };
+    const schedule = () => {
+      if (!frame) {
+        frame = requestAnimationFrame(update);
+      }
+    };
+
+    container.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+    this.stopTrackingActive.push(() => {
+      cancelAnimationFrame(frame);
+      container.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    });
   }
 
   /** Arrow function para manter o this ao ser usada como listener. */
