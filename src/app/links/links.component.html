@@ -1,0 +1,31 @@
+<main class="links">
+  <div class="links-card">
+    <img class="links-logo" [src]="logo" alt="Hi Tech" width="235" height="345" />
+    <h1 class="links-title">Hi Tech</h1>
+    <p class="links-tagline">Empresa Júnior de Tecnologia. Ideias em sistemas reais.</p>
+
+    <ul class="links-list">
+      <li *ngFor="let link of links">
+        <a *ngIf="link.route" class="link-btn" [routerLink]="link.route">
+          <ng-container *ngTemplateOutlet="inner; context: { $implicit: link }"></ng-container>
+        </a>
+        <a *ngIf="link.url" class="link-btn" [href]="link.url" target="_blank" rel="noopener noreferrer">
+          <ng-container *ngTemplateOutlet="inner; context: { $implicit: link }"></ng-container>
+          <span class="sr-only"> (abre em nova aba)</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="links-foot">UTFPR &middot; Curitiba, PR</p>
+  </div>
+</main>
+
+<ng-template #inner let-link>
+  <span class="link-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path *ngFor="let d of link.icon" [attr.d]="d" />
+    </svg>
+  </span>
+  <span class="link-label">{{ link.label }}</span>
+  <span class="link-arrow" aria-hidden="true">&rarr;</span>
+</ng-template>

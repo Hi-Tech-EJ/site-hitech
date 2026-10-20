@@ -71,3 +71,11 @@ $color-sectenary-light-2: lighten($color-sectenary, 20%);
 $color-sectenary-dark-1: darken($color-sectenary, 10%);
 $color-sectenary-dark-2: darken($color-sectenary, 20%);
 
+// Acessibilidade (contraste medido sobre os fundos usados no site)
+$color-action: #1a5fd0;          // azul de acao: 5,85:1 com texto branco, 5,3:1 sobre #f4f4f4
+$color-action-border: #0046b3;
+$color-muted: #554949;           // texto secundario: 5,4:1 sobre #f1edec
+$color-placeholder: #666666;     // 4,9:1 sobre #ededed
+$color-field-border: #767676;    // 3:1 minimo contra o fundo do campo e do cartao
+$color-error: #b3261e;           // 6,5:1 sobre branco
+$color-card-tint: #9cc9fb;       // azul do cartao de servico: texto #554949 a 5:1

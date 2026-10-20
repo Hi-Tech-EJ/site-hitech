@@ -2,11 +2,22 @@
 
 #about {
   margin: auto;
+  /* calha lateral das secoes; o bloco de eventos sangra ate a borda, mas o
+     conteudo de todos segue a mesma coluna (largura maxima 1760px) */
+  --gutter: 40px;
+  box-sizing: border-box;
   /* Sem padding inferior: a .events-section é o último elemento e seu gradiente
      precisa encostar direto no rodapé, sem faixa bege de fundo no meio. */
-  padding: 80px 40px 0;
+  padding: 56px 0 0;
   background-color: $color-secondary;
   overflow-x: clip;
+}
+
+.about-content,
+#aboutUs,
+#review-cards,
+.events-section {
+  padding-inline: max(var(--gutter), calc((100% - 1760px) / 2));
 }
 
 .about-content {
@@ -32,19 +43,19 @@
 }
 
 .main-title {
-    /* Largura conforme o Figma (490px) */
-    flex: 0 1 490px;
-    max-width: 490px;
+    /* duas colunas: texto na borda esquerda da pagina, formulario na direita */
+    flex: 1 1 0;
+    max-width: 520px;
     min-width: 0;
 }
 
 .form-wrapper {
     position: relative;
-    flex: 0 1 772px;
+    flex: 1 1 0;
     width: 100%;
-    max-width: 772px;
+    max-width: 700px;
     min-width: 0;
-    margin-top: 120px;
+    margin-top: 0;
 }
 
 .form-card {
@@ -89,20 +100,20 @@ input,
 textarea,
 select {
     padding: 12px 16px;
-    color: #5B5B5B;
+    color: #3d3d3d;
     background-color: #EDEDED;
-    border: 1px solid #898989;
+    border: 1px solid $color-field-border;
     border-radius: 8px;
     font-size: 16px;
-    outline: none;
+    font-family: "Roboto Mono", monospace;
     width: 100%;
     box-sizing: border-box;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: #00f2fe;
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    border-color: $color-action;
 }
 
 button {
@@ -110,8 +121,11 @@ button {
     padding: 12px 24px;
     border: 1px solid #09254D;
     border-radius: 8px;
-    background: #3690F7;
+    background: $color-action;
     color: white;
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
     box-shadow: 5px 4px 0 #09254D;
 }
@@ -122,11 +136,22 @@ button:hover {
 
 select,
 select option {
-    color: #5B5B5B;
+    color: #3d3d3d;
 }
 
 .main-title {
-  h2 {
+  .subtitle {
+    display: block;
+    margin: 0 0 14px;
+  }
+
+  .description {
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0 0 20px;
+    line-height: 1.15;
     font-family: "Rubik Mono One", sans-serif;
     font-size: clamp(2rem, 5vw, 4rem);
     color: #09254D;
@@ -142,7 +167,8 @@ select option {
 
 .description {
     font-family: "Roboto Mono", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.7;
     color: #554949;
     font-weight: 400;
 }
@@ -178,7 +204,7 @@ select option {
 
 #aboutUs {
   position: relative;
-  margin: 120px 0 0;
+  margin: 72px 0 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -186,6 +212,7 @@ select option {
   align-items: center;
   text-align: left;
   gap: 30px;
+  box-sizing: border-box;
 
   .aboutUs-content {
     display: flex;
@@ -194,21 +221,22 @@ select option {
     align-items: center;
     width: 100%;
     gap: 40px;
-    padding: 50px 20px;
+    padding: 0;
     box-sizing: border-box;
   }
 
   .aboutUs-left {
     flex: 1;
-    max-width: 809px;
+    max-width: 760px;
     align-items: flex-start;
     text-align: left;
   }
 
   .aboutUs-title{
     font-family: "Rubik Mono One", sans-serif;
-    font-size: clamp(1.8rem, 3.4vw, 2.75rem);
-    line-height: 1.15;
+    font-size: clamp(2rem, 2.4vw + 1rem, 3rem);
+    line-height: 1.2;
+    margin: 0;
     color: $color-support;
   }
 
@@ -224,8 +252,8 @@ select option {
 
   .aboutUs-description{
     margin-top: 20px;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: #554949;
   }
 }
@@ -238,9 +266,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
   position: relative;
   display: block;
   width: 100%;
-  max-width: 1400px;
-  margin: 0;
-  padding: 0 20px;
+  margin: 72px 0 0;
   box-sizing: border-box;
   text-align: left;
 
@@ -265,7 +291,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
   }
 
   .review-title {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
     font-weight: 700;
     color: $color-support;
     margin: 0;
@@ -387,24 +413,21 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 }
 
 .events-section {
-  padding: 80px 8%;
+  /* sangra ate a borda da janela, mas o conteudo segue a mesma coluna do resto */
+  padding-block: 72px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 128px;
+  margin-top: 96px;
 
   background: linear-gradient(180deg, #bfe2f7 0%, #ffffff 100%);
 
   .events-header {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 
     .events-subtitle {
       font-size: 14px;
@@ -448,7 +471,8 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
       }
 
       .event-card {
-        flex: 0 0 min(680px, 85vw);
+        flex: 0 0 min(680px, 85vw, 100%);
+        min-width: 0;
         scroll-snap-align: start;
         display: flex;
         flex-direction: column;
@@ -492,7 +516,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
           span {
             font-family: 'Roboto Mono', monospace;
             color: #ffffff;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             display: block;
             text-transform: uppercase;
@@ -504,6 +528,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
     .carousel-btn {
       z-index: 10;
+      color: #ffffff;
       width: 44px;
       height: 44px;
       flex-shrink: 0;
@@ -538,7 +563,8 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
 @media (max-width: 1024px) {
   #about {
-    padding: 60px 24px 0;
+    --gutter: 28px;
+    padding: 48px 0 0;
   }
 
   .about-content {
@@ -558,14 +584,45 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
 
   .events-section {
-    margin-top: 80px;
-    padding: 60px 5%;
+    margin-top: 72px;
+    padding-block: 48px;
   }
 }
 
 @media (max-width: 768px) {
   #about {
-    padding: 48px 16px 0;
+    --gutter: 20px;
+    padding: 40px 0 0;
+  }
+
+  /* reviews: em vez de empilhar quatro cards longos, uma fileira que se
+     arrasta de lado. O container sangra ate a borda da tela para o proximo
+     card aparecer cortado (indica que ha mais) e a sombra nao ser recortada */
+  #review-cards .review-grid {
+    display: flex;
+    gap: 16px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 12px var(--gutter) 24px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid $color-primary;
+      outline-offset: -3px;
+    }
+
+    .review-card {
+      flex: 0 0 min(360px, 82vw);
+      height: auto;
+      scroll-snap-align: start;
+    }
   }
 
   /* O vao entre o titulo e o formulario vinha de tres regras somadas
@@ -590,7 +647,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
     .aboutUs-content {
       flex-direction: column;
-      padding: 30px 20px;
+      padding: 0;
       gap: 24px;
     }
 
@@ -600,8 +657,8 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
   }
 
   .events-section {
-    margin-top: 60px;
-    padding: 48px 4%;
+    margin-top: 56px;
+    padding-block: 40px;
 
     /* no toque o arrasto ja navega, entao as setas so roubariam 88px de
        largura do carrossel */
@@ -617,11 +674,17 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
 @media (max-width: 480px) {
   #about {
-    padding: 36px 12px 0;
+    --gutter: 16px;
+    padding: 32px 0 0;
   }
 
-  .main-title h2 {
+  .main-title h1 {
     font-size: clamp(1.6rem, 6vw, 2.5rem);
+  }
+
+  #aboutUs .aboutUs-title {
+    font-size: clamp(1.4rem, 6.4vw, 1.75rem);
+    overflow-wrap: anywhere;
   }
 
   .form-card {
@@ -630,7 +693,7 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
 
   .events-section {
     margin-top: 40px;
-    padding: 36px 3%;
+    padding-block: 32px;
 
     .events-header .events-title {
       font-size: 1.4rem;
@@ -645,17 +708,13 @@ $review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quin
     }
   }
 
-  #review-cards {
-    padding: 0 12px;
-
-    .review-grid {
-      gap: 24px;
-    }
+  #review-cards .review-grid {
+    gap: 16px;
   }
 
   #aboutUs {
     .aboutUs-content {
-      padding: 24px 12px;
+      padding: 0;
     }
   }
 }

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 import { AboutComponent } from './about.component';
+import { FieldErrorComponent } from '../shared/field-error.component';
+
 
 describe('AboutComponent', () => {
   let component: AboutComponent;
@@ -8,7 +11,8 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AboutComponent]
+      imports: [ReactiveFormsModule, ToastrModule.forRoot()],
+      declarations: [AboutComponent, FieldErrorComponent]
     })
     .compileComponents();
     

@@ -11,21 +11,23 @@
      Fica no :host e nao na ultima secao para continuar valendo quando os
      casos de sucesso voltarem. Tambem impede que a margin-bottom de
      .carta-servicos vaze por colapso de margem, em vez de virar espaco. */
-  padding-bottom: 80px;
+  padding-bottom: 64px;
 }
 
 .carta-servicos {
-    max-width: 2000px;
-    margin: 30px auto;
-    padding: 0 20px;
+    /* mesma coluna do hero e do CTA: tudo comeca e termina nas mesmas bordas */
+    max-width: 1760px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+    box-sizing: border-box;
     background-color: $color-secondary;
 }
 
 .title {
     font-size: 52px;
     font-weight: 400;
-    margin-bottom: 27px;
-    margin-left: 45px;
+    margin-bottom: 28px;
+    margin-left: 0;
     color: $color-support;
     font-family: "Rubik Mono One", sans-serif;
 }
@@ -34,9 +36,9 @@
   font-size: 14px;
   font-weight: 600;
   color: $color-quinary-dark-1;
-  margin-left: 45px;
+  margin-left: 0;
   margin-bottom: 5px;
-  margin-top: 15px;
+  margin-top: 0;
   font-family: "Roboto Mono", sans-serif;
 }
 
@@ -48,66 +50,72 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 300px));
-  /* margin em vez de translateX: transform não entra no cálculo de layout e
-     fazia o grid vazar para fora do container em telas estreitas */
-  margin-left: 50px;
+  /* colunas flexiveis: o grid ocupa a largura inteira da coluna da pagina em
+     vez de ficar encostado a esquerda com 300px fixos */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-left: 0;
   gap: 30px;
 
-  @media (max-width: 1400px) {
-    grid-template-columns: repeat(3, minmax(0, 300px));
+  @media (max-width: 1180px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  @media (max-width: 1100px) {
-    grid-template-columns: repeat(2, minmax(0, 300px));
+  @media (max-width: 860px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @media (max-width: 620px) {
     /* 1fr e não 300px fixo: em celulares estreitos o card precisa encolher */
     grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 }
 
+/* cada cartao leva uma cor da marca: --accent pinta sombra e icone,
+   --accent-ink e a versao legivel sobre o azul-marinho do verso */
 .card {
+    --accent: #{$color-tertiary};
+    --accent-ink: #{$color-tertiary};
+    --accent-fg: #{$color-support};
+
+    position: relative;
     perspective: 1000px;
     cursor: pointer;
     height: 286px;
-    transition :transform 0.7s ease, all 0.7s ease;
-    &:hover
-    {
-      cursor: pointer;
-      transform: translateY(-30px);
-      h2 {
-        color:  $color-quinary;
-      }
-      p {
-        color: $color-support;
-      }
+
+    &:nth-child(4n + 2) {
+      --accent: #{$color-quaternary};
+      --accent-ink: #{$color-quaternary};
+    }
+
+    &:nth-child(4n + 3) {
+      --accent: #{$color-quinary};
+      --accent-ink: #c9a7ff;
+      --accent-fg: #ffffff;
+    }
+
+    &:nth-child(4n) {
+      --accent: #{$color-primary};
+      --accent-ink: #8cc3ff;
     }
 }
 
-
-.card h2 {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $color-support;
-
-    flex: 1;
-    margin: 0;
-
-    display: flex;
-    align-items: center;
+/* sem GSAP (carregando, falhou ou JS desligado) o cartao ainda reage ao hover */
+:host(:not(.gsap-ready)) .card:hover {
+    transform: translateY(-6px);
+    transition: transform 0.3s ease;
 }
 
-.card p {
-    color: #554949;
-    line-height: 1.6;
-}
-
-.card-number {
-    font-size: 14px;
-    font-weight: bold;
-    color: #5B01BA;
+.flip-toggle {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
 }
 
 .card-front,
@@ -122,72 +130,162 @@
 
     padding: 24px;
 
-    background: linear-gradient(225deg,$color-primary,#D3FCFF);
-    border: 1px solid $color-support;
+    border: 2px solid $color-support;
     border-radius: 12px;
-
-    backface-visibility: hidden;
 }
 
-.card-back {
-    transform: rotateY(180deg);
-
+.card-front {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: auto;
-    p {
-      font-family: "Roboto Mono", sans-serif;
-      font-size: clamp(13px, 1.4vw, 16px);
-      line-height: 1.4;
-      margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 8px 10px 0 var(--accent);
+
+    /* brilho que acompanha o mouse (--mx/--my vem do GSAP) */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(
+        260px circle at var(--mx, 50%) var(--my, 50%),
+        color-mix(in srgb, var(--accent) 38%, transparent),
+        transparent 65%
+      );
+    }
+
+    h3 {
+      margin: auto 0 0;
+      color: $color-support;
+      font-family: "Rubik Mono One", sans-serif;
+      font-size: clamp(14px, 1.25vw, 17px);
+      font-weight: 400;
+      line-height: 1.25;
+      text-transform: uppercase;
       overflow-wrap: break-word;
       word-break: break-word;
       hyphens: auto;
     }
 }
 
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
+.card:hover .card-front::after {
+    opacity: 1;
+}
+
+.card-number {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    color: rgba($color-support, 0.1);
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 44px;
+    line-height: 1;
+}
+
+.card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-support;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    box-shadow: 3px 3px 0 $color-support;
+
+    svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+}
+
+.card-hint {
+    margin: 10px 0 0;
+    color: $color-muted;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    .plus {
+      display: inline-block;
+      color: $color-support;
+      transition: transform 0.4s ease;
+    }
+}
+
+.card:hover .plus {
+    transform: rotate(90deg);
+}
+
+.card-back {
+    /* a face de tras so aparece quando o cartao esta virado (.show-back, ou
+       .flipped no fallback sem GSAP) */
+    visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+    overflow: auto;
+    background: $color-support;
+    box-shadow: 8px 10px 0 var(--accent);
+
+    .card-label {
+      color: var(--accent-ink);
+      font-family: "Roboto Mono", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0;
+      color: #ffffff;
+      font-family: "Roboto Mono", sans-serif;
+      font-size: clamp(13px, 1.2vw, 15px);
+      line-height: 1.6;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+    }
+}
+
+/* face visivel: so uma por vez, sem rotacao 3D em repouso */
+.card.show-back,
+:host(:not(.gsap-ready)) .card.flipped {
+    .card-front {
+      visibility: hidden;
+    }
+
+    .card-back {
+      visibility: visible;
+    }
 }
 
 .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-
-    transition: transform .6s;
-    transform-style: preserve-3d;
-}
-
-.card-front {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 8px 10px 0px $color-quaternary;
-    h2 {
-      font-family: "Rubik Mono One", sans-serif;
-      font-size: clamp(16px, 1.6vw, 20px);
-      font-weight: 400;
-      overflow-wrap: break-word;
-      word-break: break-word;
-      hyphens: auto;
-    }
-    p {
-      font-family: "Roboto Mono", sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-    }
 }
 
 .hero-servicos {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 75px; /* Espaçamento entre a logo e o texto */
-  max-width: 1200px;
+  justify-content: flex-start;
+  gap: 56px; /* Espaçamento entre a logo e o texto */
+  max-width: 1760px;
   margin: 0 auto;
-  padding: 70px 20px 0 20px;
+  padding: 56px 40px 0;
+  box-sizing: border-box;
   background-color: $color-secondary;
 }
 
@@ -205,8 +303,9 @@
     box-shadow: 8px 8px 0px $color-tertiary;
 
     img {
-      max-width: 380px; /* Ajuste conforme o tamanho real da imagem da logo */
-      height: auto;
+      /* logo vertical (235x345): altura definida, a largura acompanha */
+      height: 180px;
+      width: auto;
     }
   }
 }
@@ -214,7 +313,8 @@
 .hero-right {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Espaço entre o subtítulo, título e parágrafo */
+  gap: 14px; /* Espaço entre o subtítulo, título e parágrafo */
+  max-width: 880px;
 
   .eyebrow {
     font-size: 14px;
@@ -226,9 +326,10 @@
   }
 
   .headline {
-    font-size: 3.5rem;
+    font-size: clamp(2.4rem, 4vw, 3.75rem);
+    text-wrap: balance;
     font-family: "Rubik Mono One", sans-serif;
-    line-height: 1.1;
+    line-height: 1.15;
     font-weight: 400;
     color: $color-support;
     margin: 0;
@@ -244,9 +345,10 @@
   }
 
   .description {
-    font-size: 14px;
-    color: #554949;
-    line-height: 1.5;
+    font-size: 17px;
+    color: $color-muted;
+    line-height: 1.6;
+    max-width: 56ch;
     margin: 0;
 
     @media (max-width: 960px) {
@@ -271,7 +373,7 @@
     padding: 20px 40px;
 
     img {
-      max-width: 260px;
+      height: 140px;
     }
   }
 
@@ -318,19 +420,19 @@
 
   .hero-servicos {
     gap: 24px;
-    padding: 36px 12px 0 12px;
+    padding: 36px 16px 0;
   }
 
   .hero-left .logo-box {
     padding: 16px 24px;
 
     img {
-      max-width: 200px;
+      height: 110px;
     }
   }
 
   .carta-servicos {
-    padding: 0 12px;
+    padding: 0 16px;
   }
 
   .cards-container {
@@ -346,5 +448,89 @@
        do mesmo tamanho do titulo "SERVICOS" e quebrava a hierarquia.
        14px e o valor usado no desktop. */
     font-size: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .card {
+    height: 210px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 20px;
+  }
+}
+
+.services-cta {
+  box-sizing: border-box;
+  width: calc(100% - 80px);
+  max-width: 1680px;
+  margin: 56px auto 0;
+  padding: 36px 40px;
+  background: #ffffff;
+  border: 1px solid $color-support;
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 $color-tertiary;
+  text-align: left;
+
+  h2 {
+    margin: 0 0 12px;
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: $color-support;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 24px;
+    max-width: 60ch;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: $color-muted;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 12px 24px;
+    background-color: $color-action;
+    color: #ffffff;
+    border: 2px solid $color-action-border;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 $color-action-border;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 5px 6px 0 $color-action-border;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .services-cta {
+    width: calc(100% - 32px);
+    margin: 40px auto 0;
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carta-servicos {
+    padding: 0 20px;
+  }
+
+  .services-cta {
+    width: calc(100% - 40px);
+    padding: 28px 24px;
   }
 }

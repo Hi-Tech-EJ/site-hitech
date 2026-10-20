@@ -1,3 +1,5 @@
+<a class="skip-link" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
+
 <header>
   <!-- Barra Superior -->
   <div class="top-bar">
@@ -8,12 +10,12 @@
 
   <!-- Navegação Principal -->
   <nav>
-    <div class="logo" routerLink="/home">
-      <img [src]="templateText.LogoEmpresa.src" [alt]="templateText.LogoEmpresa.alt" />
-    </div>
+    <a class="logo" routerLink="/" aria-label="Hi Tech, página inicial">
+      <img [src]="templateText.LogoEmpresa.src" alt="" />
+    </a>
     
     <ul class="nav-links">
-      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a routerLink="/about" routerLinkActive="active">Sobre Nós</a></li>
       <li><a routerLink="/services" routerLinkActive="active">Serviços</a></li>
       <li><a routerLink="/contact" routerLinkActive="active">Contato</a></li>
@@ -21,6 +23,6 @@
   </nav>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <ng-content></ng-content>
 </main>

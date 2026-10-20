@@ -1,33 +1,36 @@
 <footer>
   <div class="footer-container">
-    <div class="footer-contact">
-      <p>{{"Empresa Júnior de Tecnologia. Ideias em sistemas reais."}}</p>
+    <div class="footer-brand">
+      <img class="footer-logo" [src]="logoAzulClaro" alt="Logo Hi Tech" />
+      <p class="footer-tagline">Empresa Júnior de Tecnologia. Ideias em sistemas reais.</p>
     </div>
 
-    <!--
-    <div class="footer-info">
-      <h4>{{templateText.divTitle1 }}</h4>
-      <p>{{templateText.endereco}}</p>
-      <p>{{templateText.cnpj }}</p>
-    </div>
+    <nav class="footer-col" aria-label="Rodapé">
+      <h2 class="footer-heading">Navegue</h2>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/about">Sobre Nós</a></li>
+        <li><a routerLink="/services">Serviços</a></li>
+        <li><a routerLink="/contact">Contato</a></li>
+      </ul>
+    </nav>
 
-    
-    <div>
-      <h4>{{"Teste1"}}</h4>
-    </div>
-    -->
-    <div class="footer-social">
-      <img class="footer-logo" [src]="logoAzulClaro" alt="Logo Hï-Tech"/>
-
-      <div class="social-content">
-        <a *ngFor="let rede of templateText.RedesSociais"
-          [href]="rede.url"
-          target="_blank">
-
-          <img [src]="rede.icon" [alt]="rede.nome" class="social-icon" />
-        </a>
-      </div>
+    <div class="footer-col">
+      <h2 class="footer-heading">Fale com a gente</h2>
+      <ul>
+        <li><a href="mailto:contato@hitech.org.br">contato&#64;hitech.org.br</a></li>
+        <li *ngFor="let rede of templateText.RedesSociais">
+          <a [href]="rede.url" target="_blank" rel="noopener noreferrer" class="social-link">
+            <img [src]="rede.icon" alt="" aria-hidden="true" class="social-icon" />
+            <span>{{ rede.nome }}<span class="sr-only"> (abre em nova aba)</span></span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Hi Tech. Todos os direitos reservados.</p>
+    <p>UTFPR &middot; Curitiba, PR</p>
+  </div>
 </footer>

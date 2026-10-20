@@ -1,43 +1,91 @@
 .whatsapp-section {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    z-index: 9999;
-  }
-  
-  .whatsapp-icon {
-    width: auto;
-    height: 50px;
-    background-color: #25d366;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-  }
-  
-  .whatsapp-text {
-    font-size: 14px;//14
-    font-weight: bold;
-    color: #fff;
-    margin-right: 10px;
-  }
-  
-  .whatsapp-icon img {
-    width: 30px;
-    height: 30px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+}
+
+.whatsapp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  img {
+    width: 44px;
+    height: 44px;
     object-fit: contain;
   }
-  
-  .whatsapp-icon:hover {
-    transform: scale(1.05);
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
   }
-  
-  .whatsapp-icon:active {
+
+  &:active {
     transform: scale(1);
   }
-  
+
+  &:focus-visible {
+    outline: 3px solid #09254d;
+    outline-offset: 3px;
+  }
+}
+
+/* pulso verde discreto: um circulo que cresce e some. Fica num elemento
+   proprio atras do botao e anima so transform e opacity (compositor da GPU);
+   animar box-shadow repinta a cada quadro e fica "em degraus" */
+.whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #25d366;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.whatsapp-icon {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .whatsapp-pulse {
+    animation: whatsapp-pulse 3s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%   { opacity: 0.4; transform: scale(1); }
+  65%  { opacity: 0;   transform: scale(1.7); }
+  100% { opacity: 0;   transform: scale(1.7); }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-section {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp-icon {
+    width: 62px;
+    height: 62px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

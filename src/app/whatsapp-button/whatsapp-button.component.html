@@ -1,11 +1,13 @@
 <div class="whatsapp-section">
+  <span class="whatsapp-pulse" aria-hidden="true"></span>
   <a
     [href]="templateText.whatsapp?.whatsappNumberLink"
     target="_blank"
+    rel="noopener noreferrer"
     class="whatsapp-icon"
-    [attr.aria-label]="templateText.whatsapp?.whatsappText"
+    [attr.aria-label]="(templateText.whatsapp?.whatsappText || 'WhatsApp') + ' (abre em nova aba)'"
     title="{{ templateText.whatsapp?.whatsappText }}"
   >
-    <img [src]="templateText.whatsapp?.whatsappLogoPath" alt="WhatsApp" />
+    <img [src]="templateText.whatsapp?.whatsappLogoPath" alt="" aria-hidden="true" />
   </a>
 </div>

@@ -2,38 +2,50 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Hï Tech | Empresa Júnior de Tecnologia e Soluções Digitais</title>
+    <title>Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais</title>
     <base href="/" />
+    <script>document.documentElement.classList.add("js")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- SEO básico -->
     <meta
       name="description"
-      content="A Hï Tech é uma empresa júnior de tecnologia que cria sites, sistemas web, automações e design de produto. Solicite um briefing e tire seu projeto do papel."
+      content="A Hi Tech é uma empresa júnior de tecnologia que cria sites, sistemas web, automações e design de produto. Solicite um briefing e tire seu projeto do papel."
     />
     <meta
       name="keywords"
       content="empresa júnior, tecnologia, desenvolvimento de sites, sistemas web, automação, design de produto, soluções digitais, Curitiba, UTFPR"
     />
-    <meta name="author" content="Hï Tech" />
+    <meta name="author" content="Hi Tech" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://hitech.org.br/" />
 
     <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Hï Tech" />
-    <meta property="og:title" content="Hï Tech | Empresa Júnior de Tecnologia e Soluções Digitais" />
+    <meta property="og:site_name" content="Hi Tech" />
+    <meta property="og:title" content="Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais" />
     <meta
       property="og:description"
       content="Criamos sites, sistemas web, automações e design de produto. Solicite um briefing e tire seu projeto do papel."
     />
     <meta property="og:url" content="https://hitech.org.br/" />
     <!-- Imagem da prévia ao compartilhar o link (WhatsApp, LinkedIn etc).
-         O ideal é uma arte em 1200x630; a logo atual é 229x316 e sai como
-         miniatura pequena. Ao trocar, declarar também og:image:width/height
-         e usar twitter:card="summary_large_image". -->
-    <meta property="og:image" content="https://hitech.org.br/assets/logo.ico" />
+         Arte 1200x630 em src/assets/og-image.png. -->
+    <meta property="og:image" content="https://hitech.org.br/assets/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hi Tech, empresa júnior de tecnologia: sites, sistemas web, automações e design de produto" />
     <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter / X (title e description são atualizados por rota no SeoService) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais" />
+    <meta
+      name="twitter:description"
+      content="Criamos sites, sistemas web, automações e design de produto. Solicite um briefing e tire seu projeto do papel."
+    />
+    <meta name="twitter:image" content="https://hitech.org.br/assets/og-image.png" />
 
     <link rel="icon" type="image/png" href="assets/logo.ico" />
     <link rel="shortcut icon" href="assets/logo.ico" />
@@ -54,22 +66,53 @@
       crossorigin="anonymous"
     />
 
-    <!-- Dados estruturados (Schema.org) -->
+    <!-- Dados estruturados (Schema.org). O alternateName cobre quem busca a
+         marca sem espaço ou com a grafia antiga (Hï Tech). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Hï Tech",
-        "url": "https://hitech.org.br/",
-        "logo": "https://hitech.org.br/assets/logo.ico",
-        "description": "Empresa júnior de tecnologia que cria sites, sistemas web, automações e design de produto.",
-        "email": "contato@hitech.org.br",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Curitiba",
-          "addressRegion": "PR",
-          "addressCountry": "BR"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://hitech.org.br/#organization",
+            "name": "Hi Tech",
+            "alternateName": ["HiTech", "Hï Tech"],
+            "url": "https://hitech.org.br/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://hitech.org.br/assets/logo-512.png",
+              "width": 512,
+              "height": 512
+            },
+            "image": "https://hitech.org.br/assets/og-image.png",
+            "description": "Empresa júnior de tecnologia que cria sites, sistemas web, automações e design de produto.",
+            "email": "contato@hitech.org.br",
+            "sameAs": ["https://www.instagram.com/hitech.ej/"],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Sete de Setembro, 3165 - Rebouças",
+              "addressLocality": "Curitiba",
+              "addressRegion": "PR",
+              "postalCode": "80230-901",
+              "addressCountry": "BR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "contato@hitech.org.br",
+              "availableLanguage": "pt-BR"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://hitech.org.br/#website",
+            "name": "Hi Tech",
+            "alternateName": ["HiTech", "Hï Tech"],
+            "url": "https://hitech.org.br/",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://hitech.org.br/#organization" }
+          }
+        ]
       }
     </script>
   </head>

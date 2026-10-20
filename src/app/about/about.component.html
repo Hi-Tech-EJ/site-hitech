@@ -3,8 +3,8 @@
 
   <div class="main-title">
   <p class="subtitle">PROCESSO SELETIVO</p>
-  <h2>FAÇA<br>PARTE DA<br>HÏ-TECH</h2>
-  <p class="description">A Hï Tech é um espaço para aprender fazendo: projetos
+  <h1>FAÇA<br>PARTE DA<br>HI TECH</h1>
+  <p class="description">A Hi Tech é um espaço para aprender fazendo: projetos
   reais, tecnologia aplicada e gente disposta a crescer junto.</p>
   </div>
 
@@ -19,25 +19,19 @@
       </div>
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input
-          type="text"
-          id="nome"
-          placeholder="Digite seu nome"
-          formControlName="name">
-       </div>
+        <input type="text" id="nome" name="name" autocomplete="name" placeholder="Digite seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'nome-error' : null" />
+        <app-field-error errorId="nome-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
+      </div>
 
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="voce@email.com"
-          formControlName="email">
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
+        <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
       </div>
 
       <div class="form-group">
         <label for="periodo">Período da Faculdade</label>
-          <select id="periodo" formControlName="period">
+          <select id="periodo" name="period" formControlName="period" required [attr.aria-invalid]="showError('period')" [attr.aria-describedby]="showError('period') ? 'periodo-error' : null">
             <option value="" disabled selected>Selecione um período</option>
             <option value="1">1º Período</option>
             <option value="2">2º Período</option>
@@ -50,9 +44,10 @@
             <option value="9">9º Período</option>
             <option value="10">10º Período</option>
           </select>
+        <app-field-error errorId="periodo-error" [control]="form.get('period')" [messages]="{ required: 'Selecione o período em que você está.' }"></app-field-error>
       </div>
 
-      <button type="submit">Quero ser Avisado</button>
+      <button type="submit" [disabled]="isLoading" [attr.aria-busy]="isLoading">{{ isLoading ? 'Enviando...' : 'Quero ser avisado' }}</button>
     </form>
     </div>
   </div>
@@ -63,7 +58,7 @@
       <div class="aboutUs-left">
         <div class="aboutUs-header">
         <span class="aboutUs-subtitle">SOBRE NÓS</span>
-        <h1 class="aboutUs-title">somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores.</h1>
+        <h2 class="aboutUs-title">somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores.</h2>
         <p class="aboutUs-description">Unimos desenvolvimento, design, gestão e cultura de comunidade
                                      para entregar demandas em sistemas úteis. Nosso foco é
                                      entregar valor para clientes e criar uma experiência intensa
@@ -78,9 +73,9 @@
       <span class="review-subtitle">QUEM PASSOU POR AQUI</span>
       <h2 class="review-title">review de membros antigos</h2>
     </div>
-    <div class="review-grid">
+    <div class="review-grid" tabindex="0" role="region" aria-label="Depoimentos de ex-membros">
       <div class="review-card">
-        <p class="review-text">“Participar da Hï Tech foi uma experiência transformadora. Desde o primeiro ano da faculdade estando na EJ, tive contato com empresas e desafios reais, desenvolvendo habilidades em negócios, vendas, tecnologia, comunicação e liderança. Além do crescimento profissional, essa experiência me proporcionou grandes amizades e amadurecimento que levo comigo até hoje.” </p>
+        <p class="review-text">“Participar da Hi Tech foi uma experiência transformadora. Desde o primeiro ano da faculdade estando na EJ, tive contato com empresas e desafios reais, desenvolvendo habilidades em negócios, vendas, tecnologia, comunicação e liderança. Além do crescimento profissional, essa experiência me proporcionou grandes amizades e amadurecimento que levo comigo até hoje.” </p>
         <div class="author-info">
           <span class="author-name">Cecília Moreira</span>
           <span class="author-role">Ex-Gerente de Negócios</span>
@@ -88,7 +83,7 @@
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“Mesmo já tendo experiências profissionais de desenvolvimento antes da Hï Tech, ainda pude aprender muito sobre desenvolvimento profissional, bem como poder passar por posições de gestão de pessoas e projetos reais, me permitindo desenvolver frentes que no mercado sênior desenvolveria apenas depois de muitos anos de carreira.” </p>
+        <p class="review-text">“Mesmo já tendo experiências profissionais de desenvolvimento antes da Hi Tech, ainda pude aprender muito sobre desenvolvimento profissional, bem como poder passar por posições de gestão de pessoas e projetos reais, me permitindo desenvolver frentes que no mercado sênior desenvolveria apenas depois de muitos anos de carreira.” </p>
         <div class="author-info">
           <span class="author-name">Lucas Orlikoski</span>
           <span class="author-role">Ex-Presidente</span>
@@ -96,7 +91,7 @@
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“A Hï Tech me permitiu desenvolver habilidades que eu não teria a chance de explorar em outros lugares. Além de atuar com as mãos na massa em projetos, cresci como pessoa, como integrante de uma equipe e como líder de um time que sabe ir longe!” </p>
+        <p class="review-text">“A Hi Tech me permitiu desenvolver habilidades que eu não teria a chance de explorar em outros lugares. Além de atuar com as mãos na massa em projetos, cresci como pessoa, como integrante de uma equipe e como líder de um time que sabe ir longe!” </p>
         <div class="author-info">
           <span class="author-name">Ana Roviero</span>
           <span class="author-role">Ex-Gerente de Marketing</span>
@@ -104,7 +99,7 @@
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“A Hï Tech foi onde aprendi, na prática, a transformar estratégia em resultado. Como cofundador e vice-presidente, pude contribuir com a construção da empresa, atuar com qualidade de software e desenvolvimento backend, além de desenvolver uma visão muito mais completa sobre tecnologia, liderança e gestão.” </p>
+        <p class="review-text">“A Hi Tech foi onde aprendi, na prática, a transformar estratégia em resultado. Como cofundador e vice-presidente, pude contribuir com a construção da empresa, atuar com qualidade de software e desenvolvimento backend, além de desenvolver uma visão muito mais completa sobre tecnologia, liderança e gestão.” </p>
         <div class="author-info">
           <span class="author-name">Saulo Peretto</span>
           <span class="author-role">Ex-Vice-Presidente</span>

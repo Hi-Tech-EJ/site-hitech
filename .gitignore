@@ -41,3 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 src/environments/env.prod.ts
+
+# Cache local das ferramentas de design (Impeccable)
+.impeccable/
