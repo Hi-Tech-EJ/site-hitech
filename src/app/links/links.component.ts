@@ -25,7 +25,7 @@ export class LinksComponent {
   links: LinkItem[] = [];
 
   /** Endereco do portfolio. Vazio = o botao nao aparece. */
-  private readonly portfolioUrl = '';
+  private readonly portfolioUrl = 'https://www.canva.com/design/DAHYNCBZRXY/AcfTfCJHkS54SinIRr0a9g/view';
 
   constructor(templateTextService: templateTextService) {
     templateTextService.templateText$.subscribe((data) => {
