@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   private readonly defaultSeo: SeoData = {
     title: 'Empresa Júnior de Tecnologia e Soluções Digitais',
     description:
-      'A Hi Tech cria sites, sistemas web, automações e design de produto. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
+      'A Hi Tech cria sites, sistemas web, aplicativos mobile e automações. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
   };
 
   constructor(

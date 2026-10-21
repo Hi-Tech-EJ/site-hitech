@@ -1,0 +1,30 @@
+# Hi Tech
+
+> A Hi Tech é uma empresa júnior de tecnologia formada por estudantes universitários, em Curitiba (PR). Desenvolve sites, sistemas web, aplicativos mobile, automações e outras soluções digitais sob medida para empresas que querem organizar processos, validar produtos e gerar impacto com tecnologia.
+
+O trabalho combina método, comunicação e projetos reais, do primeiro contato com o cliente até a entrega final. A empresa também forma profissionais: os estudantes atuam em desenvolvimento, design e gestão. Resultados informados no site: mais de 10 projetos entregues, mais de 10 membros formados e 8 frentes de serviço. O site está em português do Brasil.
+
+## Páginas
+
+- [Início](https://hitech.org.br/): apresentação da empresa, valores (excelência técnica, pessoas no centro, impacto real) e atuação.
+- [Serviços](https://hitech.org.br/services): as 8 frentes de serviço, com a descrição do que é entregue em cada uma.
+- [Sobre nós e processo seletivo](https://hitech.org.br/about): quem somos, depoimentos de membros antigos, fotos de eventos e como participar do próximo processo seletivo.
+- [Contato e briefing](https://hitech.org.br/contact): formulário para enviar um briefing e receber uma proposta de caminho de desenvolvimento.
+
+## Serviços
+
+- Sites e Sistemas Web: sites e sistemas web sob medida, responsivos e com suporte contínuo.
+- Sistemas Legados: manutenção e modernização de sistemas antigos, sem parar a operação.
+- E-mail, Domínio e Hospedagem: configuração e manutenção da base digital da empresa.
+- Aplicativos Mobile: do protótipo à publicação, com foco em usabilidade e desempenho.
+- Coleta e Análise de Dados: organização e análise dos dados do negócio para decisões embasadas.
+- Sistemas de Autoatendimento: sistemas que reduzem filas e trabalho manual.
+- Automações: integrações, APIs e bots para tarefas repetitivas.
+- E-commerce: lojas virtuais com catálogo, pagamento e gestão de pedidos integrados.
+
+## Contato
+
+- E-mail: contato@hitech.org.br
+- Endereço: Sete de Setembro, 3165, Rebouças, Curitiba, PR, CEP 80230-901
+- Instagram: https://www.instagram.com/hitech.ej/
+- LinkedIn: https://www.linkedin.com/company/h%C3%AFtech/
