@@ -42,6 +42,19 @@ html, body {
   width: 100%;
 }
 
+/* Texto so para leitores de tela e buscadores (ex: contexto de "Saiba mais"). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   font-family: "Roboto Mono", monospace;
   margin: 0;
@@ -80,3 +93,52 @@ body {
 
 }
 
+/* Foco visivel em qualquer elemento interativo: contorno azul-marinho sobre
+   os fundos claros do site (15:1 sobre branco). Nos blocos escuros, amarelo. */
+:focus-visible {
+  outline: 3px solid #09254d;
+  outline-offset: 3px;
+}
+
+.main-block :focus-visible,
+.values-bar :focus-visible,
+.recruit-card :focus-visible {
+  outline-color: #ffc145;
+}
+
+::placeholder {
+  color: #666666;
+  opacity: 1;
+}
+
+::selection {
+  background: #ffc145;
+  color: #09254d;
+}
+
+/* Menos movimento: o estado muda, a animacao nao. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .enviar:active,
+  .card:hover {
+    transform: none !important;
+  }
+
+  .card-inner {
+    transition: none !important;
+  }
+}
+
+/* Cartoes que entram com GSAP: ficam escondidos so quando ha JavaScript e a
+   pessoa nao pediu menos movimento. Sem JS, com movimento reduzido ou se o
+   GSAP falhar (html.motion-off), aparecem normalmente. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js:not(.motion-off) .reveal-card {
+    opacity: 0;
+  }
+}

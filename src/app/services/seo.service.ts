@@ -6,11 +6,13 @@ import { Router } from '@angular/router';
 export interface SeoData {
   title: string;
   description: string;
+  /** Pagina fora do indice (ex: 404). Padrao: indexavel. */
+  noindex?: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
-  private readonly siteName = 'Hï Tech';
+  private readonly siteName = 'Hi Tech';
   private readonly baseUrl = 'https://hitech.org.br';
 
   constructor(
@@ -26,27 +28,47 @@ export class SeoService {
 
     this.titleService.setTitle(fullTitle);
     this.meta.updateTag({ name: 'description', content: data.description });
+    this.meta.updateTag({ name: 'robots', content: data.noindex ? 'noindex, follow' : 'index, follow' });
 
     // Open Graph
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
     this.meta.updateTag({ property: 'og:description', content: data.description });
     this.meta.updateTag({ property: 'og:url', content: url });
 
+    // Twitter / X
+    this.meta.updateTag({ name: 'twitter:title', content: fullTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: data.description });
+
     this.setCanonical(url);
   }
 
   /**
+   * Insere (ou troca) um bloco JSON-LD proprio da pagina atual, alem do
+   * Organization/WebSite fixos do index.html. Quem chama deve remover no
+   * ngOnDestroy para o bloco nao vazar para a proxima rota.
+   */
+  setJsonLd(id: string, data: object): void {
+    let script = this.document.head.querySelector<HTMLScriptElement>(`script[data-jsonld="${id}"]`);
+
+    if (!script) {
+      script = this.document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('data-jsonld', id);
+      this.document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify(data);
+  }
+
+  removeJsonLd(id: string): void {
+    this.document.head.querySelector(`script[data-jsonld="${id}"]`)?.remove();
+  }
+
+  /**
    * URL absoluta da rota atual, sem query string nem fragmento.
-   * '/' e '/home' servem a mesma pagina, entao as duas apontam para a raiz:
-   * assim o Google consolida o sinal num endereco so em vez de tratar as
-   * duas como conteudo duplicado.
    */
   private canonicalUrl(): string {
     const path = this.router.url.split(/[?#]/)[0];
-
-    if (path === '/' || path === '/home') {
-      return `${this.baseUrl}/`;
-    }
     return `${this.baseUrl}${path}`;
   }
 

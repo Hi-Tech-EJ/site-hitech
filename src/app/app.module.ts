@@ -11,6 +11,9 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { CoreComponent } from './core/core.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LinksComponent } from './links/links.component';
+import { FieldErrorComponent } from './shared/field-error.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +36,9 @@ import { TypewriterDirective } from './typewriter.directive';
     ContactComponent,
     ServicesComponent,
     FooterComponent,
+    NotFoundComponent,
+    LinksComponent,
+    FieldErrorComponent,
     WhatsappButtonComponent,
     TypewriterDirective,
     // SuccessCasesComponent,  <- ver comentario no import acima

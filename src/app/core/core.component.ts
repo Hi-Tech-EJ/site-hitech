@@ -22,6 +22,12 @@ export class CoreComponent implements OnInit {
     });
   }
 
+  /** O href="#conteudo" com <base href="/"> levaria para a home; por isso o foco e movido por codigo. */
+  skipToContent(event: Event): void {
+    event.preventDefault();
+    document.getElementById('conteudo')?.focus();
+  }
+
   navigateToSection(route: string, fragment: string) {
     this.router.navigate([route], { fragment: fragment });
   }

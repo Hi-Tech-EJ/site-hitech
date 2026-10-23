@@ -42,7 +42,8 @@
             "assets": [
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/llms.txt"
             ],
             "styles": [
               "src/styles.scss"

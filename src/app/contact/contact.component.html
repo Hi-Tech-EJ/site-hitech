@@ -1,24 +1,24 @@
 <section class="contato-text">
     <div class="contact-title">
         <p class="contato">CONTATO</p>
-        <h1>VAMOS CRIAR<Br>SUA SOLUÇÃO<Br>DIGITAL</h1>
+        <h1>VAMOS CRIAR SUA SOLUÇÃO DIGITAL</h1>
         <p class="mini-text">
-            Conte para a Hï Tech o que sua empresa precisa. A partir<Br>
-            disso, entendemos o problema, avaliamos possibilidades e<Br>
+            Conte para a Hi Tech o que sua empresa precisa. A partir
+            disso, entendemos o problema, avaliamos possibilidades e
             propomos um caminho de desenvolvimento.
         </p>
     </div>
 
     <div class="contact-card">
         <div class="card-header">
-            <h3>&lt;briefing /&gt;</h3>
+            <span class="card-title">&lt;briefing /&gt;</span>
         </div>
 
         <div class="card-body">
             <p class="sub-title">Primeira conversa objetiva</p>
             <p class="text">
-                Ideal para quem precisa tirar uma ideia do papel, melhorar<Br>
-                um processo ou entender se um sistema faz sentido para o<Br>
+                Ideal para quem precisa tirar uma ideia do papel, melhorar
+                um processo ou entender se um sistema faz sentido para o
                 momento atual.
             </p>
         </div>
@@ -28,7 +28,7 @@
 <section class="contact-cards">
     <div class="main-text">
         <p>CANAIS</p>
-        <h2>ESCOLHA O MELHOR CAMINHO PARA<Br>FALAR COM A GENTE</h2>
+        <h2>ESCOLHA O MELHOR CAMINHO PARA FALAR COM A GENTE</h2>
     </div>
 
     <div class="cards">
@@ -44,7 +44,7 @@
                 Envie uma mensagem com contexto do projeto, prazo desejado e principais
                 necessidades.
             </p>
-            <p>
+            <p class="channel-link">
                 <a href="mailto:contato@hitech.org.br">contato&#64;hitech.org.br</a>
             </p>
         </div>
@@ -62,7 +62,7 @@
                 Acompanhe os bastidores, os projetos e as novidades da empresa
                 no nosso perfil.
             </p>
-            <p>
+            <p class="channel-link">
                 <a href="https://www.instagram.com/hitech.ej/" target="_blank" rel="noopener noreferrer">&#64;hitech.ej</a>
             </p>
         </div>
@@ -79,7 +79,7 @@
                 Atuação ligada à Universidade Tecnológica Federal do Paraná, com atendimento
                 remoto ou combinado.
             </p>
-            <p>Curitiba, PR</p>
+            <p class="channel-link">Curitiba, PR</p>
         </div>
     </div>
 </section>
@@ -87,10 +87,10 @@
 <section class="form">
     <div class="main-block">
         <div class="briefing-content">
-            <h3>BRIEFING INICIAL</h3>
-            <h2>ENVIE UMA<Br>MENSAGEM PARA<Br>COMEÇARMOS.</h2>
+            <span class="briefing-label">BRIEFING INICIAL</span>
+            <h2>ENVIE UMA MENSAGEM PARA COMEÇARMOS.</h2>
             <p>
-                Preencha nosso formulário e entraremos em contato o mais cedo possível<Br>
+                Preencha nosso formulário e entraremos em contato o mais cedo possível
                 para resolvermos seu problema.
             </p>
 
@@ -113,16 +113,25 @@
         </div>
         <section class="contact-form">
             <form [formGroup]="form" (ngSubmit)="publishTask()">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Seu nome" formControlName="name">
+                <div class="field">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="name" autocomplete="name" placeholder="Seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'nome-error' : null" />
+                    <app-field-error errorId="nome-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
+                </div>
 
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="voce@email.com" formControlName="email">
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
+                    <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
+                </div>
 
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem"placeholder="Conte rapidamente o que você precisa" formControlName="description"> </textarea>
+                <div class="field">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="description" autocomplete="off" placeholder="Conte rapidamente o que você precisa" formControlName="description" required [attr.aria-invalid]="showError('description')" [attr.aria-describedby]="showError('description') ? 'mensagem-error' : null"></textarea>
+                    <app-field-error errorId="mensagem-error" [control]="form.get('description')" [messages]="{ required: 'Conte o que você precisa.', minlength: 'Escreva pelo menos 10 caracteres.' }"></app-field-error>
+                </div>
 
-                <button type="submit" class="enviar" [disabled]="form.invalid || isLoading">
+                <button type="submit" class="enviar" [disabled]="isLoading" [attr.aria-busy]="isLoading">
                     {{ isLoading ? 'Enviando...' : 'Enviar briefing' }}
                 </button>
             </form>

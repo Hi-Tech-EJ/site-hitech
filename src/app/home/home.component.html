@@ -45,13 +45,12 @@
   </div>
 
   <div class="values-bar">
-   <img src="assets/padrao-azul-escuro-ciano.svg" alt="" class="pattern-overlay" aria-hidden="true" />
     <div class="value-item" *ngFor="let feature of templateText.features; let i = index">
       <div class="value-icon-box">
         <img [src]="feature.icon" [alt]="feature.title" class="value-icon" loading="lazy" decoding="async" />
       </div>
       <div class="value-text">
-        <h3 [appTypewriter]="feature.title" [delay]="i * 300" [speed]="75"></h3>
+        <h2 [appTypewriter]="feature.title" [delay]="i * 300" [speed]="75"></h2>
         <p [appTypewriter]="feature.description" [delay]="i * 300 + 500" [speed]="25"></p>
       </div>
     </div>
@@ -73,8 +72,8 @@
       <div class="about-right">
         <div class="about-card-wrapper">
           <div class="activity-card">
-            <div class="activity-icon-box">
-              <img [src]="templateText.about.activityIcon" alt="Atividades da Hï Tech" class="activity-icon" loading="lazy" decoding="async" />
+            <div class="activity-head">
+              <img [src]="templateText.about.activityIcon" alt="Hi Tech" class="activity-icon" width="474" height="105" loading="lazy" decoding="async" />
             </div>
             <ul>
               <li *ngFor="let item of templateText.about.activity">
@@ -108,7 +107,7 @@
       <h2 class="services-title">Soluções digitais para impulsionar seu negócio.</h2>
     </div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal-card">
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 18L22 12L16 6"/>
@@ -117,9 +116,9 @@
         </div>
         <h3>DESENVOLVIMENTO WEB</h3>
         <p>Sites, sistemas web, e-commerce e melhoria de sistemas legados.</p>
-        <a class="service-link" routerLink="/services">Saiba mais</a>
+        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre desenvolvimento web</span></a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal-card">
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="6" y="2" width="12" height="20" rx="2"/>
@@ -128,9 +127,9 @@
         </div>
         <h3>APPS E AUTOATENDIMENTO</h3>
         <p>Apps mobile e sistemas de autoatendimento para o seu cliente.</p>
-        <a class="service-link" routerLink="/services">Saiba mais</a>
+        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre apps e autoatendimento</span></a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal-card">
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="6" y1="20" x2="6" y2="14"/>
@@ -140,9 +139,9 @@
         </div>
         <h3>DADOS E AUTOMAÇÕES</h3>
         <p>Coleta e análise de dados e automação de tarefas repetitivas.</p>
-        <a class="service-link" routerLink="/services">Saiba mais</a>
+        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre dados e automações</span></a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal-card">
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="3" width="20" height="8" rx="2"/>
@@ -153,8 +152,18 @@
         </div>
         <h3>INFRAESTRUTURA DIGITAL</h3>
         <p>Configuração de e-mail, domínio e hospedagem do seu negócio.</p>
-        <a class="service-link" routerLink="/services">Saiba mais</a>
+        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre infraestrutura digital</span></a>
       </div>
+    </div>
+  </section>
+
+  <section id="recruit">
+    <div class="recruit-card">
+      <div class="recruit-text">
+        <h2>Estuda na UTFPR e quer aprender com projetos reais?</h2>
+        <p>Na Hi Tech você desenvolve, desenha e gerencia entregas para clientes de verdade, ao lado de quem já passou por aqui.</p>
+      </div>
+      <a class="btn-secondary" routerLink="/about">Conheça o processo seletivo</a>
     </div>
   </section>
 
@@ -164,35 +173,26 @@
         <p class="contact-pretitle">VAMOS CONVERSAR?</p>
         <h2>TEM UM DESAFIO? NÓS TEMOS A SOLUÇÃO.</h2>
         <p class="contact-description">
-          Fale com a Hï Tech e descubra como podemos transformar sua ideia em um produto digital com impacto.
+          Fale com a Hi Tech e descubra como podemos transformar sua ideia em um produto digital com impacto.
         </p>
       </div>
       <form class="contact-right" [formGroup]="form" (ngSubmit)="publishTask()">
         <div class="field-group">
           <label class="label-nome" for="name">Nome</label>
-          <input id="name" type="text" placeholder="Seu nome" formControlName="name" />
-          <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
-            <small *ngIf="form.get('name')?.errors?.['required']">Nome é obrigatório.</small>
-            <small *ngIf="form.get('name')?.errors?.['minlength']">Nome muito curto.</small>
-          </div>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'name-error' : null" />
+          <app-field-error errorId="name-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
         </div>
         <div class="field-group">
           <label class="label-email" for="email">E-mail</label>
-          <input id="email" type="email" placeholder="voce@email.com" formControlName="email" />
-          <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
-            <small *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório.</small>
-            <small *ngIf="form.get('email')?.errors?.['email']">Email inválido.</small>
-          </div>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
+          <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
         </div>
         <div class="field-group">
           <label class="label-mensagem" for="description">Mensagem</label>
-          <textarea id="description" placeholder="Conte rapidamente o que você precisa" formControlName="description"></textarea>
-          <div *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
-            <small *ngIf="form.get('description')?.errors?.['required']">Mensagem é obrigatória.</small>
-            <small *ngIf="form.get('description')?.errors?.['minlength']">Mensagem muito curta.</small>
-          </div>
+          <textarea id="description" name="description" autocomplete="off" placeholder="Conte rapidamente o que você precisa" formControlName="description" required [attr.aria-invalid]="showError('description')" [attr.aria-describedby]="showError('description') ? 'description-error' : null"></textarea>
+          <app-field-error errorId="description-error" [control]="form.get('description')" [messages]="{ required: 'Conte o que você precisa.', minlength: 'Escreva pelo menos 10 caracteres.' }"></app-field-error>
         </div>
-        <button type="submit" [disabled]="form.invalid || isLoading">
+        <button type="submit" [disabled]="isLoading" [attr.aria-busy]="isLoading">
           <ng-container *ngIf="!isLoading">Enviar mensagem</ng-container>
           <ng-container *ngIf="isLoading">
             <span class="spinner"></span> Enviando...
@@ -207,7 +207,7 @@
       <h3>{{ templateText.Costumers.sectionTitle }}</h3>
       <div class="list">
         <div class="item" *ngFor="let costumer of costumers">
-          <img [src]="costumer.img" alt="Logotipo de cliente da Hï Tech" loading="lazy" decoding="async" />
+          <img [src]="costumer.img" alt="Logotipo de cliente da Hi Tech" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -215,7 +215,7 @@
       <h3>{{ templateText.Partners.sectionTitle }}</h3>
       <div class="list">
         <div class="item" *ngFor="let partner of partners">
-          <img [src]="partner.img" alt="Logotipo de parceiro da Hï Tech" loading="lazy" decoding="async" />
+          <img [src]="partner.img" alt="Logotipo de parceiro da Hi Tech" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>

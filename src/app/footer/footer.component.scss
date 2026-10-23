@@ -1,97 +1,106 @@
 @import "colors.scss";
 
+/* Mesma coluna das paginas (ate 1760px) e margem lateral que encolhe nas
+   telas menores; ver breakpoints no fim */
 footer {
-  background-color: $color-sextenary;
-  color: $color-sectenary;
-  text-color: $color-sectenary;
+  --gutter: max(40px, calc((100% - 1760px) / 2));
   width: 100%;
   box-sizing: border-box;
-
-  padding: 12px 0;
-  text-align: center;
+  /* um tom abaixo do azul das faixas: na pagina de contato o rodape vem logo
+     depois de uma faixa azul e nao pode se fundir com ela */
+  background-color: #061a36;
+  color: #dfe8f3;
+  padding: 56px var(--gutter) 0;
 
   .footer-container {
-    @media screen and (min-width: 1000px) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row-reverse;
-      width: 100%;
-      padding: 0 40px;
-      box-sizing: border-box;
-
-    }
-
-    .footer-info,
-    .footer-contact {
-      margin: 6px;
-      padding: 16px 0;
-    }
-
-    h4 {
-      margin-bottom: 10px;
-      color: $color-secondary-light-1;
-    }
-
-    p {
-      margin: 5px 0;
-      margin-right: 40px;
-      font-size: 13px;
-      color: $color-sectenary-dark-1;
-    }
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    padding-bottom: 36px;
   }
 
-  .footer-social {
+  .footer-brand {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    width: auto;
+    height: 72px;
+  }
+
+  .footer-tagline {
+    margin: 0;
+    max-width: 34ch;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #dfe8f3;
+  }
+
+  .footer-heading {
+    margin: 0 0 16px;
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $color-tertiary;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-col a {
+    display: inline-flex;
     align-items: center;
-    gap: 50px;
-    padding-left: 60px;
+    gap: 10px;
+    min-height: 40px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 
-    .social-content {
-      display: flex;
-      gap: 30px;
-    }
-
-    a {
-      display: flex;
-      align-items: start;
-      margin-bottom: 10px;
-      color: $color-secondary-light-2;
-      text-decoration: none;
-      transition: color 0.3s;
-
-      &:hover {
-        color: $color-primary-light-1;
-      }
-
-      .social-icon {
-        /* altura fixa e largura automatica: os dois SVGs tem proporcoes
-           diferentes (LinkedIn 17x20, Instagram 19x19), entao forcar um
-           quadrado deixava um deles menor que o outro */
-        height: 22px;
-        width: auto;
-        margin-right: 8px;
-        transition: transform 0.4s ease;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-      }
+    &:hover {
+      color: $color-quaternary;
+      text-decoration-color: $color-quaternary;
     }
   }
 
-  .footer-logo
-  {
-    width: 60px;
-    height: auto;
+  .social-icon {
+    height: 20px;
+    width: auto;
+    /* os SVGs sao azul-marinho (feitos para fundo claro); aqui ficam brancos */
+    filter: brightness(0) invert(1);
   }
 
   .footer-bottom {
-    border-top: 1px solid $color-primary-dark-2;
-    padding-top: 10px;
-    font-size: 0.8rem;
-    color: $color-secondary-dark-1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    /* folga a direita para o botao flutuante do WhatsApp nao cobrir o texto */
+    padding: 20px 80px 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+    p {
+      margin: 0;
+      font-family: "Roboto Mono", monospace;
+      font-size: 13px;
+      color: #b9c8db;
+    }
   }
 }
 
@@ -99,64 +108,44 @@ footer {
    RESPONSIVIDADE - Footer
    ===================================================== */
 
+@media (max-width: 1024px) {
+  footer {
+    --gutter: 28px;
+  }
+}
+
 @media (max-width: 768px) {
   footer {
-    text-align: left;
-
-    /* no celular fica so a marca: o texto institucional sai */
-    .footer-contact {
-      display: none;
-    }
+    --gutter: 20px;
+    padding-top: 40px;
 
     .footer-container {
-      padding: 0 16px;
-
-      p {
-        margin-right: 0;
-      }
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 32px 24px;
+      padding-bottom: 32px;
     }
 
-    /* logo e redes lado a lado, encostados na esquerda */
-    .footer-social {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      /* respiro maior entre a logo e o bloco de redes... */
-      gap: 32px;
-      padding-left: 0;
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
 
-      /* ...e menor entre os dois icones, para lerem como um grupo so */
-      .social-content {
-        gap: 12px;
-      }
+    .footer-logo {
+      height: 60px;
+    }
 
-      /* zerados para o icone alinhar pelo centro com a logo e o espacamento
-         ficar so por conta do gap */
-      a {
-        margin-bottom: 0;
-      }
-
-      .social-icon {
-        margin-right: 0;
-      }
+    /* o botao flutuante do WhatsApp nao cobre o conteudo do rodape */
+    .footer-bottom {
+      padding: 20px 0 84px;
     }
   }
 }
 
 @media (max-width: 480px) {
   footer {
-    padding: 16px 0;
+    --gutter: 16px;
 
-    .footer-social {
-      gap: 24px;
-
-      .social-content {
-        gap: 10px;
-      }
-    }
-
-    .footer-logo {
-      width: 48px;
+    .footer-container {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 }

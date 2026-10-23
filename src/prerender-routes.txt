@@ -1,4 +1,6 @@
-/home
+/
 /about
 /services
 /contact
+/404
+/links

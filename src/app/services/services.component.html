@@ -1,22 +1,17 @@
 <section class="hero-servicos">
   <div class="hero-left">
     <div class="logo-box">
-      <img src="assets/hitech-logo2.png" alt="Logo Hï Tech" />
+      <img src="assets/logoNova1.svg" alt="Logo Hi Tech" width="235" height="345" />
     </div>
   </div>
 
   <div class="hero-right">
     <span class="eyebrow">NOSSOS SERVIÇOS</span>
     <h1 class="headline">
-      SOLUÇÕES<br>
-      DIGITAIS<br>
-      PARA TIRAR<br>
-      SISTEMAS DO<br>
-      PAPEL.
+      SOLUÇÕES DIGITAIS PARA TIRAR SISTEMAS DO PAPEL.
     </h1>
     <p class="description">
-      Escolha uma frente e clique nos cards para ver como cada<br>
-      serviço pode se traduzir em resultado.
+      Escolha uma frente e clique nos cards para ver como cada serviço pode se traduzir em resultado.
     </p>
   </div>
 </section>
@@ -26,22 +21,38 @@
     <h2 class="title">SERVIÇOS</h2>
 
     <div class="cards-container">
-    <div class="card" *ngFor="let service of services" [class.flipped]="service.flipped" (click)="service.flipped = !service.flipped">
-    <div class="card-inner">
+    <article class="card reveal-card" *ngFor="let service of services; let i = index" [class.flipped]="service.flipped">
+        <button type="button" class="flip-toggle"
+                [attr.aria-expanded]="service.flipped"
+                [attr.aria-controls]="'service-desc-' + i"
+                [attr.aria-label]="'Detalhes de ' + service.title"
+                (click)="toggle(service, $event)"></button>
 
-        <div class="card-front">
-            <span class="card-number">{{ service.number }}</span>
-            <h2>{{ service.title }}</h2>
-            <p>Clique para ver</p>
+        <div class="card-inner">
+            <div class="card-front">
+                <span class="card-number" aria-hidden="true">{{ service.number }}</span>
+                <span class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path *ngFor="let d of service.icon" [attr.d]="d" />
+                    </svg>
+                </span>
+                <h3>{{ service.title }}</h3>
+                <p class="card-hint" aria-hidden="true">Ver detalhes <span class="plus">+</span></p>
+            </div>
+
+            <div class="card-back" [id]="'service-desc-' + i" [attr.aria-hidden]="!service.flipped">
+                <span class="card-label">O que entregamos</span>
+                <p>{{ service.description }}</p>
+            </div>
         </div>
+    </article>
+    </div>
+</section>
 
-        <div class="card-back">
-            <p>{{ service.description }}</p>
-        </div>
-
-    </div>
-    </div>
-    </div>
+<section class="services-cta">
+  <h2>Qual desses serviços resolve o seu problema?</h2>
+  <p>Conte sua ideia em um briefing curto e respondemos com um caminho de desenvolvimento.</p>
+  <a class="btn-primary" routerLink="/contact">Enviar briefing</a>
 </section>
 
 <!-- Casos de sucesso: desativado por ora, fica para uma proxima versao.

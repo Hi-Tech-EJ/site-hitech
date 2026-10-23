@@ -3,6 +3,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { templateTextService } from '@app/services/templateText.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormSubmitService } from '@app/shared/form-submit.service';
+import { focusFirstInvalid } from '@app/shared/form-utils';
 
 @Component({
   selector: 'app-about',
@@ -16,6 +18,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   templateText: any = {};
 
   @ViewChild('carousel') carousel!: ElementRef;
+  @ViewChild('reviewGrid') reviewGrid!: ElementRef;
 
   form: FormGroup;
   isLoading = false;
@@ -23,14 +26,17 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   private apiUrl = "https://script.google.com/macros/s/AKfycbw7bvxnEtAzzHDI5jykNIoo2iTIT0ixBY-wJigVsAqboPD5jRc7ZOBGqfeCVVQcn9deUA/exec";
 
   eventPhotos = [
-    { url: 'assets/events/foto2.jpg', title: 'Encontro do time Hï Tech' },
-    { url: 'assets/events/foto5.jpg', title: 'Hï Tech no palco — Paraná Júnior 2025' },
+    { url: 'assets/events/foto2.jpg', title: 'Encontro do time Hi Tech' },
+    { url: 'assets/events/foto5.jpg', title: 'Hi Tech no palco — Paraná Júnior 2025' },
     { url: 'assets/events/foto6.jpg', title: 'Reconhecimento Palco Ouro — PRJR 2025' },
     { url: 'assets/events/foto7.jpg', title: 'EJ União e Conexão — PRJR 2025' },
     { url: 'assets/events/foto1.jpg', title: 'Paraná Júnior 2026' },
-    { url: 'assets/events/foto4.jpg', title: 'Hï Tech no ECOAR — Curitiba Júnior' },
+    { url: 'assets/events/foto4.jpg', title: 'Hi Tech no ECOAR — Curitiba Júnior' },
     { url: 'assets/events/foto3.jpg', title: 'Think high, think tech' }
   ];
+
+  /** Desfaz os listeners de scroll que marcam o card em destaque. */
+  private stopTrackingActive: Array<() => void> = [];
 
   /** Autoplay do carrossel: so roda no celular (ver ngAfterViewInit). */
   private autoplayTimer?: ReturnType<typeof setInterval>;
@@ -42,12 +48,14 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
+    private formSubmit: FormSubmitService,
+    private host: ElementRef<HTMLElement>,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.form = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
       email: [null, [Validators.required, Validators.email]],
-      period: [null, Validators.required]
+      period: ['', Validators.required]
     });
   }
 
@@ -57,6 +65,9 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
+
+    this.trackActiveCard(this.reviewGrid?.nativeElement, '.review-card');
+    this.trackActiveCard(this.carousel?.nativeElement, '.event-card');
 
     // quem pediu menos animacao no sistema nao recebe autoplay
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -69,11 +80,57 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.stopTrackingActive.forEach((stop) => stop());
     this.stopAutoplay();
     if (this.resumeTimer) {
       clearTimeout(this.resumeTimer);
     }
     this.mobileQuery?.removeEventListener('change', this.onBreakpointChange);
+  }
+
+  /**
+   * Marca com `.is-active` o card mais proximo do centro do container que
+   * rola. No toque nao ha hover, entao e esse card que "levanta". O CSS so
+   * aplica o estilo em telas estreitas ou sem hover; no desktop a classe
+   * existe mas nao muda nada.
+   */
+  private trackActiveCard(container: HTMLElement | undefined, selector: string): void {
+    if (!container) {
+      return;
+    }
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const cards = Array.from(container.querySelectorAll<HTMLElement>(selector));
+      const box = container.getBoundingClientRect();
+      const center = box.left + box.width / 2;
+      let active: HTMLElement | undefined;
+      let best = Infinity;
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.left + rect.width / 2 - center);
+        if (distance < best) {
+          best = distance;
+          active = card;
+        }
+      }
+      cards.forEach((card) => card.classList.toggle('is-active', card === active));
+    };
+    const schedule = () => {
+      if (!frame) {
+        frame = requestAnimationFrame(update);
+      }
+    };
+
+    container.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+    this.stopTrackingActive.push(() => {
+      cancelAnimationFrame(frame);
+      container.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    });
   }
 
   /** Arrow function para manter o this ao ser usada como listener. */
@@ -134,38 +191,31 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     return card.offsetWidth + gap;
   }
 
+  showError(name: string): boolean {
+    const control = this.form.get(name);
+    return !!control && control.touched && control.invalid;
+  }
+
   async publishTask() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      focusFirstInvalid(this.host.nativeElement);
       return;
     }
 
     this.isLoading = true;
 
-    const data = {
-      name: this.form.value.name,
-      email: this.form.value.email,
-      period: this.form.value.period,
-      date: new Date().toISOString()
-    };
-
     try {
-      await fetch(this.apiUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify(data)
+      await this.formSubmit.send(this.apiUrl, {
+        name: this.form.value.name,
+        email: this.form.value.email,
+        period: this.form.value.period
       });
 
-    this.toastr.success('Mensagem enviada com sucesso!');
-    this.form.reset();
-
+      this.toastr.success('Pronto! Avisaremos você quando abrir a próxima seleção.');
+      this.form.reset({ name: null, email: null, period: '' });
     } catch (error) {
-      console.error(error);
-      this.toastr.error('Erro ao enviar mensagem.');
-
+      this.toastr.error('Não conseguimos enviar agora. Confira sua conexão e tente de novo.');
     } finally {
       this.isLoading = false;
     }

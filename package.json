@@ -20,6 +20,7 @@
     "@angular/platform-server": "17.3.12",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "17.3.11",
+    "gsap": "^3.15.0",
     "ngx-mask": "^19.0.6",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",

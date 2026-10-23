@@ -17,3 +17,8 @@ router-outlet {
     margin-top: 72px;
   }
 }
+
+/* sem cabecalho fixo, nao ha o que compensar */
+router-outlet.bare-outlet {
+  margin-top: 0;
+}

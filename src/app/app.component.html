@@ -1,6 +1,13 @@
-<app-core></app-core>
+<ng-container *ngIf="!standalone; else bare">
+  <app-core>
+    <router-outlet></router-outlet>
+  </app-core>
 
-<router-outlet></router-outlet>
+  <app-whatsapp-button></app-whatsapp-button>
+  <app-footer></app-footer>
+</ng-container>
 
-<app-whatsapp-button></app-whatsapp-button>
-<app-footer></app-footer>
+<!-- paginas standalone (ex.: /links) nao levam cabecalho, rodape nem WhatsApp -->
+<ng-template #bare>
+  <router-outlet class="bare-outlet"></router-outlet>
+</ng-template>

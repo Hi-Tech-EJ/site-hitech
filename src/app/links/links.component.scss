@@ -1,0 +1,175 @@
+@import "../../colors.scss";
+
+:host {
+  display: block;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 56px 20px 48px;
+  background-color: $color-support;
+  color: #ffffff;
+}
+
+.links-card {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.links-logo {
+  width: auto;
+  height: 104px;
+  margin-bottom: 20px;
+}
+
+.links-title {
+  margin: 0 0 12px;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: clamp(1.9rem, 6vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.links-tagline {
+  margin: 0 0 36px;
+  max-width: 34ch;
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #dfe8f3;
+}
+
+.links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  li {
+    /* cada botao leva uma cor da marca na sombra e no icone */
+    --accent: #{$color-tertiary};
+    --accent-fg: #{$color-support};
+
+    &:nth-child(4n + 2) { --accent: #{$color-primary}; }
+    &:nth-child(4n + 3) { --accent: #{$color-quaternary}; }
+    &:nth-child(4n) { --accent: #{$color-quinary}; --accent-fg: #ffffff; }
+  }
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 68px;
+  padding: 10px 20px 10px 12px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: $color-support;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  box-shadow: 5px 6px 0 var(--accent);
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+  /* `translate` e nao `transform`: a entrada anima `transform` e as duas
+     brigariam */
+  transition: translate 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    translate: 0 -3px;
+    box-shadow: 7px 9px 0 var(--accent);
+  }
+
+  &:active {
+    translate: 0 1px;
+    box-shadow: 3px 3px 0 var(--accent);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-tertiary;
+    outline-offset: 4px;
+  }
+}
+
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-fg);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+}
+
+.link-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.link-arrow {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.link-btn:hover .link-arrow {
+  transform: translateX(4px);
+}
+
+.links-foot {
+  margin: 40px 0 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  color: #b9c8db;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .links-card > * {
+    animation: links-rise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .links-list li {
+    animation: links-rise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) { animation-delay: #{0.15 + $i * 0.08}s; }
+    }
+  }
+}
+
+@keyframes links-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .links {
+    padding: 40px 16px 40px;
+  }
+
+  .link-btn {
+    font-size: 17px;
+  }
+}
