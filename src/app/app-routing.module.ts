@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       seo: {
-        title: 'Empresa Júnior de Tecnologia e Soluções Digitais',
+        title: 'Thiago Macedo dos Reis | Portfólio',
         description:
           'A Hi Tech cria sites, sistemas web, aplicativos mobile e automações. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
       },

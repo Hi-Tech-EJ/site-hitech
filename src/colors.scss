@@ -1,81 +1,81 @@
-// Cor Primária
-$color-primary: #3690f7;
-$color-primary-hover: darken($color-primary, 10%);
-$color-primary-border: darken($color-primary, 20%);
-$color-primary-light-1: lighten($color-primary, 10%);
-$color-primary-light-2: lighten($color-primary, 20%);
-$color-primary-dark-1: darken($color-primary, 10%);
-$color-primary-dark-2: darken($color-primary, 20%);
+// Cyberpunk Dark Theme Palette
+// Cores principais
+$color-primary: #00f0ff;          // Ciano Neon Cyberpunk
+$color-primary-hover: #00c4d4;
+$color-primary-border: #009aa8;
+$color-primary-light-1: #66f5ff;
+$color-primary-light-2: #b3faff;
+$color-primary-dark-1: #007a85;
+$color-primary-dark-2: #005057;
 
-// Cor Secundária
-$color-secondary: #f1edec;
-$color-secondary-hover: darken($color-secondary, 10%);
-$color-secondary-border: darken($color-secondary, 20%);
-$color-secondary-light-1: lighten($color-secondary, 10%);
-$color-secondary-light-2: lighten($color-secondary, 20%);
-$color-secondary-dark-1: darken($color-secondary, 10%);
-$color-secondary-dark-2: darken($color-secondary, 20%);
+// Cor Secundária (Fundo da página escuro)
+$color-secondary: #0a0e17;        // Preto azulado profundo / Cyber dark
+$color-secondary-hover: #121824;
+$color-secondary-border: #1a2233;
+$color-secondary-light-1: #161e2e;
+$color-secondary-light-2: #222e47;
+$color-secondary-dark-1: #070a10;
+$color-secondary-dark-2: #04060a;
 
-// Cor de Suporte
-$color-support: #09254d;
-$color-support-hover: lighten($color-support, 60%);
-$color-support-border: lighten($color-support, 20%);
-$color-support-light-1: lighten($color-support, 10%);
-$color-support-light-2: lighten($color-support, 40%);
-$color-support-light-3:lighten($color-support, 20%);
-$color-support-dark-1: $color-support; // Repete a cor original pois não tem mais escuro que #000000
-$color-support-dark-2: $color-support; // Repete a cor original pois não tem mais escuro que #000000
+// Cor de Suporte (Superfícies de cards e caixas)
+$color-support: #111726;          // Dark slate para cards
+$color-support-hover: #172033;
+$color-support-border: #00f0ff;
+$color-support-light-1: #1a2338;
+$color-support-light-2: #273452;
+$color-support-light-3: #1f2a42;
+$color-support-dark-1: #0d121e;
+$color-support-dark-2: #090c14;
 
-// Cor Terciária
-$color-tertiary: #ffc145;
-$color-tertiary-hover: darken($color-tertiary, 10%);
-$color-tertiary-border: darken($color-tertiary, 20%);
-$color-tertiary-light-1: lighten($color-tertiary, 10%);
-$color-tertiary-light-2: lighten($color-tertiary, 20%);
-$color-tertiary-dark-1: darken($color-tertiary, 10%);
-$color-tertiary-dark-2: darken($color-tertiary, 20%);
+// Cor Terciária (Amarelo Neon Cyberpunk)
+$color-tertiary: #fcee0a;         // Cyberpunk Yellow
+$color-tertiary-hover: #d6ca08;
+$color-tertiary-border: #ad0;
+$color-tertiary-light-1: #fdf245;
+$color-tertiary-light-2: #fef785;
+$color-tertiary-dark-1: #b5aa07;
+$color-tertiary-dark-2: #756e05;
 
-// Cor Quaternária
-$color-quaternary: #41c5c6;
-$color-quaternary-hover: darken($color-quaternary, 10%);
-$color-quaternary-border: darken($color-quaternary, 20%);
-$color-quaternary-light-1: lighten($color-quaternary, 10%);
-$color-quaternary-light-2: lighten($color-quaternary, 20%);
-$color-quaternary-dark-1: darken($color-quaternary, 10%);
-$color-quaternary-dark-2: darken($color-quaternary, 20%);
+// Cor Quaternária (Magenta Neon)
+$color-quaternary: #ff0055;       // Neon Pink / Magenta
+$color-quaternary-hover: #d90048;
+$color-quaternary-border: #a80038;
+$color-quaternary-light-1: #ff4d88;
+$color-quaternary-light-2: #ff99bb;
+$color-quaternary-dark-1: #b3003c;
+$color-quaternary-dark-2: #730026;
 
-// Cor Quinária
-$color-quinary: #5b01ba;
-$color-quinary-hover: darken($color-quinary, 10%);
-$color-quinary-border: darken($color-quinary, 20%);
-$color-quinary-light-1: lighten($color-quinary, 10%);
-$color-quinary-light-2: lighten($color-quinary, 20%);
-$color-quinary-dark-1: darken($color-quinary, 10%);
-$color-quinary-dark-2: darken($color-quinary, 20%);
+// Cor Quinária (Roxo Cyber)
+$color-quinary: #7928ca;
+$color-quinary-hover: #6521a8;
+$color-quinary-border: #4d1980;
+$color-quinary-light-1: #954fe3;
+$color-quinary-light-2: #ba86ee;
+$color-quinary-dark-1: #4d1980;
+$color-quinary-dark-2: #301050;
 
-// Cor Sextenária
-$color-sextenary: #ffffff;
-$color-sextenary-hover: darken($color-sextenary, 10%);
-$color-sextenary-border: darken($color-sextenary, 20%);
-$color-sextenary-light-1: lighten($color-sextenary, 10%);
-$color-sextenary-light-2: lighten($color-sextenary, 20%);
-$color-sextenary-dark-1: darken($color-sextenary, 10%);
-$color-sextenary-dark-2: darken($color-sextenary, 20%);
+// Texto e destaques
+$color-sextenary: #f0f4fc;        // Texto principal claro
+$color-sextenary-hover: #dbe4f5;
+$color-sextenary-border: #00f0ff;
+$color-sextenary-light-1: #ffffff;
+$color-sextenary-light-2: #ffffff;
+$color-sextenary-dark-1: #b8c7e0;
+$color-sextenary-dark-2: #8aa0c4;
 
-// Cor Sextenária
-$color-sectenary: #000000;
-$color-sectenary-hover: darken($color-sectenary, 10%);
-$color-sectenary-border: darken($color-sectenary, 20%);
-$color-sectenary-light-1: lighten($color-sectenary, 10%);
-$color-sectenary-light-2: lighten($color-sectenary, 20%);
-$color-sectenary-dark-1: darken($color-sectenary, 10%);
-$color-sectenary-dark-2: darken($color-sectenary, 20%);
+$color-sectenary: #05070a;
+$color-sectenary-hover: #0c1017;
+$color-sectenary-border: #ff0055;
+$color-sectenary-light-1: #161c27;
+$color-sectenary-light-2: #242c3d;
+$color-sectenary-dark-1: #000000;
+$color-sectenary-dark-2: #000000;
 
-// Acessibilidade (contraste medido sobre os fundos usados no site)
-$color-action: #1a5fd0;          // azul de acao: 5,85:1 com texto branco, 5,3:1 sobre #f4f4f4
-$color-action-border: #0046b3;
-$color-muted: #554949;           // texto secundario: 5,4:1 sobre #f1edec
-$color-placeholder: #666666;     // 4,9:1 sobre #ededed
-$color-field-border: #767676;    // 3:1 minimo contra o fundo do campo e do cartao
-$color-error: #b3261e;           // 6,5:1 sobre branco
-$color-card-tint: #9cc9fb;       // azul do cartao de servico: texto #554949 a 5:1
+// Acessibilidade e componentes
+$color-action: #00f0ff;
+$color-action-border: #00f0ff;
+$color-muted: #8e9bb3;
+$color-placeholder: #5d6b82;
+$color-field-border: #232f46;
+$color-error: #ff3366;
+$color-card-tint: #162033;

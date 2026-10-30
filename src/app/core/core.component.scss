@@ -26,12 +26,13 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  position: relative;
   align-items: center;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #0b111c;
   padding: 8px max(40px, calc((100% - 1760px) / 2));
   box-sizing: border-box;
-  border-bottom: 1px solid #dcdcdc;
+  border-bottom: 1px solid #1a2638;
 }
 
 .skip-link {
@@ -60,7 +61,11 @@ main:focus {
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
   img {
     height: 60px;
@@ -86,7 +91,7 @@ main:focus {
          text-decoration, nao na borda do bloco */
       min-height: 44px;
       padding: 0 4px;
-      color: $color-support;
+      color: #f0f4fc;
       text-decoration: underline;
       text-decoration-thickness: 3px;
       text-underline-offset: 8px;
@@ -97,8 +102,8 @@ main:focus {
       transition: color 0.3s ease, text-decoration-color 0.3s ease;
 
       &:hover, &.active {
-        color: $color-action;
-        text-decoration-color: $color-quinary-hover;
+        color: #00f0ff;
+        text-decoration-color: #00f0ff;
         cursor: pointer;
       }
     }

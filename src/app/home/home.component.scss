@@ -28,7 +28,7 @@ section {
 .typed-text {
   font-size: clamp(2.25rem, 2.6vw + 1rem, 3.5rem);
   font-weight: 900;
-  color: #0b2545;
+  color: #00f0ff;
   line-height: 1.15;
   text-transform: uppercase;
   overflow: hidden;
@@ -68,7 +68,7 @@ section {
   /* a foto e o destaque do hero: ocupa mais da metade da largura */
   .hero-content {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 3fr);
     align-items: center;
     width: 100%;
     gap: 56px;
@@ -168,7 +168,9 @@ section {
   .team-card-wrapper {
     position: relative;
     width: 100%;
-    background-color: #6200ee;
+    max-width: 360px;
+    margin: 0 auto;
+    background-color: #ff0055;
     border-radius: 16px;
     padding: 0;
 
@@ -179,14 +181,14 @@ section {
       left: 6px;
       right: -6px;
       bottom: -6px;
-      background-color: #6200ee;
+      background-color: #ff0055;
       z-index: -1;
       border-radius: 12px;
     }
   }
   .team-card {
-    background-color: white;
-    border: 2px solid #000000;
+    background-color: #111726;
+    border: 2px solid #00f0ff;
     border-radius: 12px;
     padding: 16px;
     display: flex;
@@ -200,7 +202,7 @@ section {
   .image-container {
     width: 100%;
     height: auto;
-    border: 2px solid #ffffff;
+    border: 2px solid #00f0ff;
     border-radius: 6px;
     overflow: hidden;
     display: flex;
@@ -208,7 +210,7 @@ section {
     img {
       width: 100%;
       height: auto;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 3 / 4; max-width: 340px; margin: 0 auto;
       /* em telas largas a foto nao passa da primeira tela: sem isto ela
          empurrava os botoes do hero para baixo da dobra */
       max-height: clamp(320px, calc(100svh - 330px), 640px);
@@ -679,7 +681,7 @@ section {
   }
 
   .contact-pretitle {
-    color: #14585d;
+    color: #00f0ff;
     font-family: 'Roboto Mono', monospace;
     font-weight: 600;
     font-size: 14px;
@@ -734,7 +736,7 @@ section {
   }
 
   .field-group label {
-    color: #09254D;
+    color: #00f0ff;
     font-family: 'Roboto Mono', monospace;
     font-weight: 600;
     font-size: 14px;
@@ -1205,6 +1207,9 @@ section {
     }
 
     .hero-description-fallback {
+    color: #e2e8f0 !important;
+    font-size: 17px;
+    line-height: 1.7;
       order: 4;
     }
 
@@ -1405,4 +1410,21 @@ section {
       font-size: 24px;
     }
   }
+}
+
+.image-container img { object-fit: cover; object-position: center top; border-radius: 8px; border: 2px solid #00f0ff; box-shadow: 0 0 25px rgba(0, 240, 255, 0.25); }
+
+/* Overrides para visibilidade no tema escuro */
+.hero-subtitle {
+  color: #fcee0a !important;
+}
+
+.hero-description-fallback,
+.hero-description,
+.about-description {
+  color: #e2e8f0 !important;
+}
+
+.about-subtitle {
+  color: #00f0ff !important;
 }
