@@ -6,50 +6,50 @@
     }
   },
   "home": {
-    "heroSubtitle": "HI TECH - EMPRESA JÚNIOR",
-    "heroTitle" : "TECNOLOGIA QUE TRANSFORMA IDEIAS EM SISTEMAS REAIS.",
-    "heroDescription" : "Desenvolvemos soluções digitais sob medida para aqueles que querem organizar processos, validar produtos e gerar impacto com tecnologia de verdade.",
-    "btnServicesText": "Conheça nossos serviços",
-    "btnContactText": "Fale com a gente",
+    "heroSubtitle": "PROJETOS",
+    "heroTitle" : "Olá, sou o Luan.",
+    "heroDescription" : "Tenho 18 anos e sou calouro de BSI",
+    "btnServicesText": "Curitiba/PR",
+    "btnContactText": "Rola para baixo >>",
     "heroImage": {
-      "src": "assets/img-home-1200.jpg",
-      "srcset": "assets/img-home-800.jpg 800w, assets/img-home-1200.jpg 1200w, assets/img-home-1600.jpg 1600w, assets/img-home-2000.jpg 2000w",
+      "src": "assets/luan.jpg",
+      "srcset": "assets/luan.jpg 800w, assets/luan.jpg 1200w, assets/luan.jpg 1600w, assets/luan.jpg 2000w",
       "sizes": "(max-width: 900px) calc(100vw - 76px), (max-width: 1840px) 64vw, 1180px",
-      "alt": "Equipe Hi Tech reunida segurando a bandeira da empresa",
-      "caption": ">> Times que constroem o futuro"
+      "alt": "Luan",
+      "caption": "-"
     },
     "features": [
       {
         "icon": "assets/feature-1.svg",
-        "title": "Excelência técnica",
-        "description": "Aplicamos boas práticas para entregar soluções seguras, escaláveis e fáceis de evoluir."
+        "title": "Experiências Profissionais",
+        "description": "Consultor de Vendas (Estagiário - UNIANDRADE), 7 meses e atualmente Jovem Aprendiz na OAB/PR (11 meses)."
       },
       {
         "icon": "assets/feature-2.svg",
-        "title": "Pessoas no centro",
-        "description": "Acreditamos em aprendizado, colaboração e protagonismo em todas as etapas do projeto."
+        "title": "Trajetória Acadêmica",
+        "description": "Técnico em Mecatrônica pelo SENAI/PR. Gestão da Informação (UFPR - 2026/1) mudei para UTFPR em 2026/2."
       },
       {
         "icon": "assets/feature-3.svg",
-        "title": "Impacto real",
-        "description": "Geramos valor para empresas, clientes e comunidade por meio de tecnologia aplicada."
+        "title": "Hobbies/Interesses",
+        "description": "Academia/Esportes, Valorant e séries de investigação"
       }
     ],
     "about": {
-        "subTitle": "Quem somos",
-        "title": "A Hi Tech conecta talento universitário e mercado para desenvolver soluções digitais de impacto.",
-        "description":"Somos uma empresa júnior de tecnologia formada por estudantes que vivem projetos reais desde o primeiro contato com o cliente até a entrega final. Nosso trabalho combina método, comunicação e energia jovem para resolver problemas com clareza.",
-        "linkText": "Conheça a empresa",
+        "subTitle": "PROFISSIONAL/FUTURO",
+        "title": "Pretendo trabalhar na área de Backend, desenvolvendo automações, a fim de ajudar os outros.",
+        "description":" Porém, estou aberto para mudanças e creio que minha área deve mudar ao decorrer do curso",
+        "linkText": "FIM",
         "activityIcon" : "assets/hitech-logo-horizontal.png",
-        "activity":["Atuação prática em desenvolvimento, design e gestão.", "Projetos pensados para resolver dores reais do cliente.","Formação de profissionais preparados para o mercado."],
-        "actingTitle" : "Nossa atuação",
+        "activity":["Backend/Automações", "Administração/Business","Inteligência Artificial"],
+        "actingTitle" : "-",
         "acting" : [
-          { "value": "+10" ,
-            "description": "projetos entregues" },
-          { "value": "+10" ,
-            "description": "membros formados" },
-          { "value": "8" ,
-            "description": "frentes de serviço" }
+          { "value": "-" ,
+            "description": "-" },
+          { "value": "-" ,
+            "description": "-" },
+          { "value": "-" ,
+            "description": "-" }
         ]
       },
     "Services": {
@@ -57,45 +57,45 @@
       ]
     },
     "Costumers": {
-      "sectionTitle": "Clientes",
+      "sectionTitle": "-",
       "list": []
     },
     "Partners": {
-      "sectionTitle": "Parceiros",
+      "sectionTitle": "-",
       "list": []
     }
   },
   "about": {
-    "title": "Sobre Nós",
-    "description": "Saiba mais sobre nós nesta página.",
-    "sectionTitle": "Título da Seção Sobre",
-    "sectionContent": "Conteúdo da seção sobre."
+    "title": "-",
+    "description": "-",
+    "sectionTitle": "-",
+    "sectionContent": "-"
   },
   "footer": {
     "RedesSociais": [
       {
-        "nome": "LinkedIn",
-        "url": "https://www.linkedin.com/company/hïtech/",
+        "nome": "Meu LinkedIn",
+        "url": "https://www.linkedin.com/in/luan-paula/",
         "icon": "assets/linkedinNovo.svg"
       },
       {
-        "nome": "Instagram",
-        "url": "https://www.instagram.com/hitech.ej/",
+        "nome": "Meu Instagram",
+        "url": "https://www.instagram.com/luan.ldp/",
         "icon": "assets/instagramNovo.svg"
       }
     ],
-    "title": "Fale Conosco",
-    "description": "Entre em contato conosco.",
-    "email": "Email: contato@hitech.org.br",
-    "telefone": "Telefone: (41) 99850-5198",
+    "title": "-",
+    "description": "-",
+    "email": "Email: luan.paula@hitech.org.br",
+    "telefone": "Telefone: (41) 98405-6782",
     "divTitle1": "Hi Tech",
-    "endereco": "Sete de Setembro, 3165, Rebouças, Curitiba - Paraná, CEP 80230-901",
-    "cnpj": "CNPJ: 58.322.883/0001-36",
+    "endereco": "Curitiba, Paraná",
+    "cnpj": "-",
     "footerBottom": "Hi Tech. Todos os direitos reservados."
   },
   "whatsapp": {
-    "whatsappNumberLink": "https://wa.me/5541984088811",
-    "whatsappText": "Entre em contato",
+    "whatsappNumberLink": "https://wa.me/5541984056782",
+    "whatsappText": "Não entre em contato",
     "whatsappLogoPath": "assets/whatsappLogo.svg"
   }
 }
