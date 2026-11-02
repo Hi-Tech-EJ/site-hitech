@@ -6,17 +6,14 @@
     }
   },
   "home": {
-    "heroSubtitle": "HI TECH - EMPRESA JÚNIOR",
-    "heroTitle" : "TECNOLOGIA QUE TRANSFORMA IDEIAS EM SISTEMAS REAIS.",
-    "heroDescription" : "Desenvolvemos soluções digitais sob medida para aqueles que querem organizar processos, validar produtos e gerar impacto com tecnologia de verdade.",
-    "btnServicesText": "Conheça nossos serviços",
-    "btnContactText": "Fale com a gente",
+    "heroTitle" : "JOAQUIM SAITO",
+    "heroDescription" : "Estudante de Engenheria de Computação pela UTFPR (Universidade Técnológica Federal do Paraná)",
     "heroImage": {
       "src": "assets/img-home-1200.jpg",
       "srcset": "assets/img-home-800.jpg 800w, assets/img-home-1200.jpg 1200w, assets/img-home-1600.jpg 1600w, assets/img-home-2000.jpg 2000w",
       "sizes": "(max-width: 900px) calc(100vw - 76px), (max-width: 1840px) 64vw, 1180px",
       "alt": "Equipe Hi Tech reunida segurando a bandeira da empresa",
-      "caption": ">> Times que constroem o futuro"
+      "caption": ""
     },
     "features": [
       {
