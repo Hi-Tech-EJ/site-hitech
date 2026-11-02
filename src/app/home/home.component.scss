@@ -1406,3 +1406,24 @@ section {
     }
   }
 }
+
+.team-card-wrapper .team-card {
+  max-width: 360px !important;
+  margin-inline: auto !important;
+}
+
+.team-card .image-container {
+  aspect-ratio: 3 / 4 !important;
+  height: auto !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.team-card .image-container img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
