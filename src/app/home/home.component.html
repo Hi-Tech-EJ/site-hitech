@@ -1,67 +1,313 @@
-<div class="scroll-container">
-  <section id="hero">
-    <h1 id="typed-text"></h1>
-    <p style="max-width: 80%;">{{ templateText.title }}</p>
-  </section>
-  <section id="services">
-    <h2>{{ templateText.Services.sectionTitle }}</h2>
-    <div class="service-list">
-      <div class="service" *ngFor="let service of services">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
+<main>
+
+  <!-- APRESENTAÇÃO -->
+  <section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+      <span class="eyebrow">
+        PORTFÓLIO PESSOAL
+        <span class="line"></span>
+        ENGENHARIA E TECNOLOGIA
+      </span>
+
+      <h1>
+        OLÁ, EU SOU
+        <span>GIOVANE<br>VESENTINI.</span>
+      </h1>
+
+      <p class="hero-description">
+        {{ formacao }}<br>
+        {{ instituicao }} · {{ periodo }}
+      </p>
+
+      <p class="hero-text">
+        Estudante de Engenharia da Computação, interessado em
+        tecnologia, conhecimento e desenvolvimento de soluções.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#about" class="button-primary">
+          CONHEÇA MINHA HISTÓRIA
+          <span>↓</span>
+        </a>
+
+        <a href="#contact" class="button-secondary">
+          ENTRE EM CONTATO
+        </a>
       </div>
+
     </div>
-    <div class="grid">
-      <div class="tile"></div>
+
+    <div class="hero-image-area">
+
+      <div class="image-decoration"></div>
+
+      <div class="profile-image">
+        <img
+          src="assets/Giovane.png"
+          alt="Foto de Giovane Vesentini"
+        >
+      </div>
+
+      <div class="image-caption">
+        <span>GIOVANE VESENTINI</span>
+        <span>UTFPR · CURITIBA</span>
+      </div>
+
     </div>
+
+    <div class="hero-index">
+      01 / PORTFÓLIO
+    </div>
+
   </section>
 
-  <section id="about-contact">
-    <img
-      [src]="templateText.ImagemSecaoSobreNosContato.src"
-      [ngStyle]="templateText.ImagemSecaoSobreNosContato.style"
-      [alt]="templateText.ImagemSecaoSobreNosContato.alt"
-    />
-    <article id="about">
-      <h2>{{ templateText.subtitle }}</h2>
-      <p>{{ templateText.description }}</p>
-    </article>
-    <article id="contact">
-      <h2>Fale Comigo</h2>
-      <form [formGroup]="form" (ngSubmit)="publishTask()">
-        <input type="text" placeholder="Nome" formControlName="name" />
-        <input type="email" placeholder="Email" formControlName="email" />
-        <input type="tel" placeholder="Telefone" formControlName="phone" />
-        <textarea
-          placeholder="Mensagem"
-          formControlName="description"
-        ></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </article>
-    <div id="toast-container"></div>
-  </section>
-  <section *ngIf="costumers.length || partners.length" id="customersPartners">
-    <div *ngIf="costumers.length" id="customers">
-      <h3>{{ templateText.Costumers.sectionTitle }}</h3>
-      <div class="list">
-        <div class="item" *ngFor="let costumer of costumers">
-          <img [src]="costumer.img" />
-        </div>
-      </div>
+
+  <!-- SOBRE MIM -->
+  <section class="about section-container" id="about">
+
+    <div class="section-heading">
+      <span class="section-number">01 — SOBRE MIM</span>
+      <span class="section-line"></span>
     </div>
-    <div *ngIf="partners.length" id="partners">
-      <h3>{{ templateText.Partners.sectionTitle }}</h3>
-      <div class="list">
-        <div class="item" *ngFor="let partner of partners">
-          <img [src]="partner.img" />
-        </div>
+
+    <div class="about-content">
+
+      <div class="about-title">
+        <span class="eyebrow">MINHA TRAJETÓRIA</span>
+
+        <h2>
+          CONHECIMENTO<br>
+          QUE MOVE<br>
+          <span>O FUTURO.</span>
+        </h2>
       </div>
+
+      <div class="about-description">
+
+        <p>
+          Meu nome é Giovane Vesentini, nasci e sempre morei em
+          Curitiba, Paraná. Atualmente sou estudante de Engenharia
+          da Computação na Universidade Tecnológica Federal do
+          Paraná (UTFPR), cursando o terceiro período.
+        </p>
+
+        <p>
+          Durante minha trajetória escolar, estudei em instituições
+          particulares e participei de diversas olimpíadas científicas,
+          experiências que contribuíram para meu interesse pelo
+          conhecimento e pelo raciocínio lógico.
+        </p>
+
+        <p>
+          Acredito na importância do aprendizado contínuo e na
+          aplicação do conhecimento para desenvolver soluções
+          e enfrentar novos desafios.
+        </p>
+
+        <div class="about-location">
+          <span class="location-icon">⌖</span>
+          CURITIBA, PARANÁ — BRASIL
+        </div>
+
+      </div>
+
     </div>
+
   </section>
-  <!-- 
-  <section class="cta-section">
-    <h2>Pronto para começar?</h2>
-    <button class="cta-button">Entre em contato</button>
-  </section> -->
-</div>
+
+
+  <!-- CONQUISTAS -->
+  <section class="achievements" id="achievements">
+
+    <div class="section-container">
+
+      <div class="section-heading">
+        <span class="section-number">02 — CONQUISTAS</span>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="achievements-intro">
+        <span class="eyebrow">DESTAQUES ACADÊMICOS</span>
+
+        <h2>
+          RESULTADOS QUE<br>
+          MARCARAM MINHA<br>
+          <span>TRAJETÓRIA.</span>
+        </h2>
+
+        <p>
+          Algumas das conquistas acadêmicas que fizeram parte
+          da minha formação.
+        </p>
+      </div>
+
+      <div class="achievement-grid">
+
+        <article class="achievement-card">
+          <span class="achievement-number">01</span>
+          <span class="achievement-category">MATEMÁTICA</span>
+
+          <h3>MEDALHA DE PRATA</h3>
+
+          <p>
+            Olimpíada Canguru de Matemática.
+          </p>
+
+          <span class="achievement-symbol">+</span>
+        </article>
+
+        <article class="achievement-card">
+          <span class="achievement-number">02</span>
+          <span class="achievement-category">BIOLOGIA</span>
+
+          <h3>MEDALHA DE BRONZE</h3>
+
+          <p>
+            Olimpíada Brasileira de Biologia.
+          </p>
+
+          <span class="achievement-symbol">+</span>
+        </article>
+
+        <article class="achievement-card featured">
+          <span class="achievement-number">03</span>
+          <span class="achievement-category">VESTIBULAR 2025</span>
+
+          <h3>5º LUGAR GERAL</h3>
+
+          <p>
+            Classificação geral no vestibular da UTFPR 2025.
+          </p>
+
+          <span class="achievement-symbol">↗</span>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HÏ TECH -->
+  <section class="hitech-section section-container" id="hitech">
+
+    <div class="section-heading">
+      <span class="section-number">03 — TECNOLOGIA E INOVAÇÃO</span>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="hitech-content">
+
+      <div>
+        <span class="eyebrow">MEU UNIVERSO PROFISSIONAL</span>
+
+        <h2>
+          TECNOLOGIA<br>
+          QUE TRANSFORMA<br>
+          <span>IDEIAS.</span>
+        </h2>
+      </div>
+
+      <div class="hitech-description">
+        <p>
+          A tecnologia é um campo de constante evolução,
+          aprendizado e possibilidades. Tenho interesse em
+          aprofundar meus conhecimentos e participar de
+          experiências que conectem teoria e prática.
+        </p>
+
+        <a
+          href="https://hitech.org.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button-primary"
+        >
+          CONHEÇA A HÏ TECH
+          <span>↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hitech-brand">
+      <img src="assets/logo-512.png" alt="Logo da Hï Tech">
+      <span>EMPRESA JÚNIOR DE TECNOLOGIA</span>
+    </div>
+
+  </section>
+
+
+  <!-- CONTATO -->
+  <section class="contact" id="contact">
+
+    <div class="section-container">
+
+      <div class="section-heading">
+        <span class="section-number">04 — CONTATO</span>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="contact-content">
+
+        <div class="contact-title">
+          <span class="eyebrow">VAMOS CONVERSAR?</span>
+
+          <h2>
+            VAMOS<br>
+            CONSTRUIR<br>
+            <span>ALGO NOVO.</span>
+          </h2>
+
+          <p>
+            Entre em contato comigo para trocar ideias,
+            conversar sobre tecnologia ou compartilhar oportunidades.
+          </p>
+        </div>
+
+        <div class="contact-information">
+
+          <div class="contact-item">
+            <span>E-MAIL</span>
+
+            <a href="mailto:giovanevesentini@alunos.utfpr.edu.br">
+              giovanevesentini&#64;alunos.utfpr.edu.br
+          </a>
+          </div>
+
+          <div class="contact-item">
+            <span>TELEFONE / WHATSAPP</span>
+
+            <a
+              href="https://wa.me/5541991419044"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (41) 99141-9044
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span>LOCALIZAÇÃO</span>
+            <p>Curitiba — Paraná, Brasil</p>
+          </div>
+
+          <a
+            class="contact-button"
+            href="mailto:giovanevesentini@alunos.utfpr.edu.br"
+          >
+            ENVIAR E-MAIL
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>

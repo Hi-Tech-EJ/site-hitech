@@ -1,78 +1,125 @@
-@import "colors.scss";
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-}
+  min-height: 64px;
+  padding: 0 7%;
 
-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 450px;
-  background-color: blueviolet;
-  padding: 15px 20px;
-  border-radius: 100px;
-  box-shadow: 0 4px 20px 10px rgba(0, 0, 0, 0.1);
-}
+  justify-content: space-between;
 
-.logo {
-  padding: 10px;
-  img {
-    width: 60px;
-    height: auto;
-  }
-  &:hover {
+  background: #F4F4F4;
+  border-bottom: 3px solid #000000;
+  margin-top: -130px; // AJUSTE AQUI: experimente -5px, -8px ou -12px
+  .brand {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-  }
-}
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  li {
+    img {
+      width: 125px;
+      max-height: 55px;
+      object-fit: contain;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+
     a {
-      color: $color-secondary;
+      position: relative;
+      color: #0B2545;
       text-decoration: none;
-      font-weight: bold;
-      &:hover {
-        color: $color-secondary-hover;
-        cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 3px;
+        background: #6200EE;
+        transition: width 0.2s;
       }
+
+      &:hover {
+        color: #1A5FD0;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .company-link {
+    color: #FFFFFF;
+    background: #1A5FD0;
+    border: 2px solid #0046B3;
+    box-shadow: 4px 4px 0 #0046B3;
+
+    padding: 12px 19px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.2s;
+
+    span {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #0046B3;
     }
   }
 }
 
-.cta {
-  background-color: $color-secondary;
-  padding: 5px 15px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  color: $color-support;
-  img {
-    max-width: 40px;
+@media (max-width: 850px) {
+  .navbar {
+    padding: 16px 5%;
+    flex-wrap: wrap;
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
   }
 }
 
-.cta a {
-  text-decoration: none;
-  color: inherit;
-}
+@media (max-width: 480px) {
+  .navbar {
+    .brand img {
+      width: 105px;
+    }
 
-.cta:hover {
-  background-color: $color-secondary-hover;
+    .company-link {
+      padding: 10px 12px;
+      font-size: 10px;
+    }
+
+    .nav-links {
+      gap: 13px;
+
+      a {
+        font-size: 10px;
+      }
+    }
+  }
 }

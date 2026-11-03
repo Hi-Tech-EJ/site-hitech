@@ -1,28 +1,57 @@
-<footer>
-  <div class="footer-container">
+<footer class="site-footer">
+
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <img
+        src="assets/logo-512.png"
+        alt="Logo Hï Tech"
+      >
+
+      <p>
+        Portfólio pessoal de Giovane Vesentini.
+        Engenharia da Computação — UTFPR.
+      </p>
+    </div>
+
+    <div class="footer-navigation">
+      <h3>NAVEGAÇÃO</h3>
+
+      <a href="#inicio">Início</a>
+      <a href="#about">Sobre mim</a>
+      <a href="#achievements">Conquistas</a>
+      <a href="#contact">Contato</a>
+    </div>
+
     <div class="footer-contact">
-      <p>{{templateText.email}}</p>
-      <p>{{templateText.telefone }}</p>
+      <h3>CONTATO</h3>
+
+      <a href="mailto:giovanevesentini@alunos.utfpr.edu.br">
+        giovanevesentini&#64;alunos.utfpr.edu.br
+      </a>
+
+      <a
+        href="https://wa.me/5541991419044"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        (41) 99141-9044
+      </a>
+
+      <a
+        href="https://hitech.org.br"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Site da Hï Tech ↗
+      </a>
     </div>
 
-    <div class="footer-info">
-      <h4>{{templateText.divTitle1 }}</h4>
-      <p>{{templateText.endereco}}</p>
-      <p>{{templateText.cnpj }}</p>
-    </div>
-
-    <div class="footer-social">
-      <div class="social-content">
-        <a *ngFor="let rede of templateText.RedesSociais" 
-     [href]="rede.url" 
-     target="_blank">
-    <img [src]="rede.icon" [alt]="rede.nome" class="social-icon" />
-          {{ rede.nome }}
-        </a>
-      </div>
-    </div>
   </div>
+
   <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} {{templateText.footerBottom }} </p>
+    <span>© {{ currentYear }} Giovane Vesentini.</span>
+    <span>Curitiba, Paraná · Brasil</span>
   </div>
+
 </footer>

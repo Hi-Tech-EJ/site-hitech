@@ -1,167 +1,87 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { PublishTaskService } from 'shared/publish-task.service';
-import { FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
-import { templateTextService } from '@app/services/templateText.service';
-import { ToastrService } from 'ngx-toastr';
 
-// Estas interfaces remetem aos tipos de preenchimento da seção de clientes e parceiros no template.json
-interface CompanyServices {
-  title: string;
-  description: string;
-}
-interface CostumersAndPartners {
-  img: string;
-}
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  templateText: any = {};
-  texts: string[] = []; // Textos para o efeito de digitação
-  services: CompanyServices[] = [];
-  costumers: CostumersAndPartners[] = [];
-  partners: CostumersAndPartners[] = [];
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private publishTaskService: PublishTaskService,
-    private templateTextService: templateTextService,
-    private toastr: ToastrService
-  ) {}
+export class HomeComponent {
 
-  form!: FormGroup;
+  nome = 'Giovane Vesentini';
 
-  ngOnInit(): void {
-    this.templateTextService.templateText$.subscribe((data) => {
-      this.templateText = data.home;
-      this.texts = this.templateText.typingTexts;
-      this.services = this.templateText.Services.list;
-      this.costumers = this.templateText.Costumers.list;
-      this.partners = this.templateText.Partners.list;
-      this.startTypingEffect(); // Inicia o efeito de digitação após carregar os textos
-    });
+  formacao = 'Estudante de Engenharia da Computação';
 
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const fragment = this.router.parseUrl(this.router.url).fragment;
-        if (fragment) {
-          const element = document.getElementById(fragment);
-          if (element) {
-            this.smoothScroll(element);
-          }
-        }
-      }
-    });
+  instituicao = 'Universidade Tecnológica Federal do Paraná (UTFPR)';
 
-    this.form = this.formBuilder.group({
-      name: [null],
-      email: [null],
-      phone: [null],
-      city: [null],
-      description: [null],
-    });
-  }
+  periodo = '3º período';
 
-  smoothScroll(target: HTMLElement) {
-    const duration = 1000; // duração de 1000ms ou 1 segundo
-    const offset = 150; // Defina o deslocamento de 150 pixels
-    const targetPosition =
-      target.getBoundingClientRect().top + window.pageYOffset - offset;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    let startTime: number | null = null;
+  email = 'giovanevesentini@alunos.utfpr.edu.br';
 
-    function animationScroll(currentTime: number) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animationScroll);
-    }
+  telefone = '41991419044';
 
-    function easeInOutQuad(t: number, b: number, c: number, d: number) {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    }
+  historia = `Nasci em Curitiba e morei aqui minha vida toda.
+Sempre estudei em colégio particular e participei de diversas olimpíadas científicas tanto no ensino fundamental como no médio.
 
-    requestAnimationFrame(animationScroll);
-  }
+Acumulei medalha de prata na Olimpíada Canguru de Matemática e medalha de bronze na Olimpíada Brasileira de Biologia, além de me qualificar como 5º lugar geral no vestibular da UTFPR 2025.`;
 
-  startTypingEffect(): void {
-    const typedText = document.getElementById('typed-text');
-    let index = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+  // Foto de perfil
+  fotoPerfil: string | null = null;
 
-    const type = () => {
-      if (!typedText || this.texts.length === 0) return;
+  selecionarFoto(event: Event): void {
+    const input = event.target as HTMLInputElement;
 
-      if (isDeleting) {
-        charIndex--;
-      } else {
-        charIndex++;
-      }
-
-      typedText.textContent = this.texts[index]?.substring(0, charIndex) || '';
-
-      if (!isDeleting && charIndex === this.texts[index].length) {
-        setTimeout(() => (isDeleting = true), 1000);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        index = (index + 1) % this.texts.length;
-      }
-
-      setTimeout(type, isDeleting ? 50 : 100);
-    };
-
-    type();
-  }
-
-  publishTask() {
-    const form = this.form.value;
-
-    const payload = {
-      name: `NOVO CONTATO - ${form.name}`,
-      priority: 2,
-      // description: `EMAIL: ${form.email},\n CELULAR: ${form.phone},\n CIDADE:${form.city},\n DESCRIÇÃO:${form.description}`,
-      markdown_description: `EMAIL: ${form.email},\n CELULAR: ${form.phone},\n DESCRIÇÃO: ${form.description}`,
-    };
-    this.publishTaskService.publishTask(payload).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.toastr.success(
-          'Seu formulário foi enviado com sucesso! 🎉',
-          'Sucesso!'
-        );
-      },
-      error: (err) => {
-        console.error(err);
-        this.toastr.error('Ops! Algo deu errado. Tente novamente.', 'Erro!');
-      },
-    });
-    this.form.reset();
-  }
-
-  ngAfterViewInit() : void {
-    const grid = document.querySelector<HTMLDivElement>(".grid");
-    const tile = document.querySelector<HTMLDivElement>(".tile");
-    if(!grid || !tile)
+    if (!input.files || input.files.length === 0) {
       return;
-
-    const totalTiles = 50 * 50;
-
-    const fragment = document.createDocumentFragment();
-    for(let i = 0; i < totalTiles; i++) {
-      const newTile = tile.cloneNode();
-      fragment.appendChild(newTile);
     }
 
-    grid.appendChild(fragment);
+    const arquivo = input.files[0];
+
+    if (!arquivo.type.startsWith('image/')) {
+      alert('Selecione um arquivo de imagem válido.');
+      return;
+    }
+
+    if (arquivo.size > 5 * 1024 * 1024) {
+      alert('A imagem deve ter no máximo 5 MB.');
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.fotoPerfil = reader.result as string;
+    };
+
+    reader.readAsDataURL(arquivo);
+  }
+
+  enviarMensagem(event: Event): void {
+    event.preventDefault();
+
+    const formulario = event.currentTarget as HTMLFormElement;
+
+    if (!formulario.reportValidity()) {
+      return;
+    }
+
+    const dados = new FormData(formulario);
+
+    const nomeContato = dados.get('nome');
+    const emailContato = dados.get('email');
+    const mensagem = dados.get('mensagem');
+
+    const assunto = encodeURIComponent(
+      `Contato pelo portfólio - ${nomeContato}`
+    );
+
+    const corpo = encodeURIComponent(
+      `Nome: ${nomeContato}\n` +
+      `E-mail: ${emailContato}\n\n` +
+      `Mensagem:\n${mensagem}`
+    );
+
+    window.location.href =
+      `mailto:${this.email}?subject=${assunto}&body=${corpo}`;
   }
 }
-

@@ -1,24 +1,21 @@
-<header>
-  <nav>
-    <!--<div class="logo" (click)="navigateToSection('home', 'hero')">
-      <img [src]="templateText.LogoEmpresa.src" 
-      [alt]="templateText.LogoEmpresa.alt" />
-    </div> -->
-    <ul class="nav-links">
-      <li><a (click)="navigateToSection('home', 'about')">Sobre Mim</a></li>
-      <li><a (click)="navigateToSection('home', 'services')">Minhas Experiências</a></li>
-      <!--<li><a (click)="navigateToSection('home', 'hero')">Clientes</a></li>-->
-      <li><a (click)="navigateToSection('home', 'contact')">Contato</a></li>
-      <!--<li><a (click)="navigateToSection('home', 'hero')">Processo Seletivo</a></li>-->
-    </ul>
-    <!-- <a href="https://wa.me/5541998505198" target="_blank">
-      <button class="cta">
-        <img src="assets/whatsIcon.webp" alt="Contato" />
-      </button>
-    </a> -->
-  </nav>
-</header>
+<header class="navbar">
+  <a class="brand" (click)="navigateToSection('home', 'inicio')">
+    <img src="assets/logo-512.png" alt="Hï Tech">
+  </a>
 
-<main>
-  <ng-content></ng-content>
-</main>
+  <nav class="nav-links">
+    <a (click)="navigateToSection('home', 'inicio')">INÍCIO</a>
+    <a (click)="navigateToSection('home', 'about')">SOBRE MIM</a>
+    <a (click)="navigateToSection('home', 'achievements')">CONQUISTAS</a>
+    <a (click)="navigateToSection('home', 'contact')">CONTATO</a>
+  </nav>
+
+  <a
+    class="company-link"
+    href="https://hitech.org.br"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    HÏ TECH <span>↗</span>
+  </a>
+</header>
