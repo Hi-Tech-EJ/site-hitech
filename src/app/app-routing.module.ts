@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       seo: {
-        title: 'Empresa Júnior de Tecnologia e Soluções Digitais',
+        title: 'Bruno Ken Hashimoto|Portfólio e Empresa Júnior de Tecnologia',
         description:
           'A Hi Tech cria sites, sistemas web, aplicativos mobile e automações. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
       },

@@ -1,101 +1,113 @@
 {
   "core": {
     "LogoEmpresa": {
-      "src": "assets/logoNova1.svg",
-      "alt": "Logo da empresa Hi Tech"
+      "src": "assets/bruno-logo.svg",
+      "alt": "Logo Bruno Hashimoto"
     }
   },
   "home": {
-    "heroSubtitle": "HI TECH - EMPRESA JÚNIOR",
-    "heroTitle" : "TECNOLOGIA QUE TRANSFORMA IDEIAS EM SISTEMAS REAIS.",
-    "heroDescription" : "Desenvolvemos soluções digitais sob medida para aqueles que querem organizar processos, validar produtos e gerar impacto com tecnologia de verdade.",
-    "btnServicesText": "Conheça nossos serviços",
-    "btnContactText": "Fale com a gente",
+    "heroSubtitle": "ENGENHARIA DA COMPUTAÇÃO · UTFPR",
+    "heroTitle": "BRUNO KEN HASHIMOTO",
+    "heroDescription": "Tenho 18 anos e estou no 1º período de Engenharia da Computação na UTFPR. Entrei para a Hi Tech em busca de novas experiências, novos objetivos e novas pessoas, e para trabalhar com algo ligado ao meu curso.",
+    "btnServicesText": "Sobre Mim",
     "heroImage": {
-      "src": "assets/img-home-1200.jpg",
-      "srcset": "assets/img-home-800.jpg 800w, assets/img-home-1200.jpg 1200w, assets/img-home-1600.jpg 1600w, assets/img-home-2000.jpg 2000w",
-      "sizes": "(max-width: 900px) calc(100vw - 76px), (max-width: 1840px) 64vw, 1180px",
-      "alt": "Equipe Hi Tech reunida segurando a bandeira da empresa",
-      "caption": ">> Times que constroem o futuro"
+      "src": "assets/bruno.jpg",
+      "srcset": "assets/bruno.jpg",
+      "sizes": "100vw",
+      "alt": "Foto do Bruno Ken Hashimoto",
+      "caption": ">> Bruno Ken Hashimoto · UTFPR"
     },
     "features": [
       {
         "icon": "assets/feature-1.svg",
-        "title": "Excelência técnica",
-        "description": "Aplicamos boas práticas para entregar soluções seguras, escaláveis e fáceis de evoluir."
+        "title": "Programação",
+        "description": "Habilidades intermediárias em Python e C, aplicadas nos estudos e em projetos."
       },
       {
         "icon": "assets/feature-2.svg",
-        "title": "Pessoas no centro",
-        "description": "Acreditamos em aprendizado, colaboração e protagonismo em todas as etapas do projeto."
+        "title": "Vivência na Hi Tech",
+        "description": "Trabalho em equipe, novas experiências e contato com projetos ligados ao meu curso."
       },
       {
         "icon": "assets/feature-3.svg",
-        "title": "Impacto real",
-        "description": "Geramos valor para empresas, clientes e comunidade por meio de tecnologia aplicada."
+        "title": "Evolução Contínua",
+        "description": "Em busca de aprender novas habilidades e aprofundar meu conhecimento."
       }
     ],
     "about": {
-        "subTitle": "Quem somos",
-        "title": "A Hi Tech conecta talento universitário e mercado para desenvolver soluções digitais de impacto.",
-        "description":"Somos uma empresa júnior de tecnologia formada por estudantes que vivem projetos reais desde o primeiro contato com o cliente até a entrega final. Nosso trabalho combina método, comunicação e energia jovem para resolver problemas com clareza.",
-        "linkText": "Conheça a empresa",
-        "activityIcon" : "assets/hitech-logo-horizontal.png",
-        "activity":["Atuação prática em desenvolvimento, design e gestão.", "Projetos pensados para resolver dores reais do cliente.","Formação de profissionais preparados para o mercado."],
-        "actingTitle" : "Nossa atuação",
-        "acting" : [
-          { "value": "+10" ,
-            "description": "projetos entregues" },
-          { "value": "+10" ,
-            "description": "membros formados" },
-          { "value": "8" ,
-            "description": "frentes de serviço" }
-        ]
-      },
-    "Services": {
-      "list": [
+      "subTitle": "Trajetória",
+      "title": "Engenharia da Computação na UTFPR",
+      "description": "Sou o Bruno Ken Hashimoto, tenho 18 anos e estou no 1º período de Engenharia da Computação na Universidade Tecnológica Federal do Paraná (UTFPR). Gosto de esportes e de música, principalmente rock e pop. Na Hi Tech quero vivenciar novas experiências, encontrar novos objetivos e novas pessoas, e trabalhar com algo correlacionado ao meu curso.",
+      "activityIcon": "assets/bruno-logo.svg",
+      "activity": [
+        "Estudante de Engenharia da Computação na UTFPR (1º período).",
+        "Habilidades em Python e C (nível intermediário).",
+        "Gosto de esportes e de música, principalmente rock e pop."
+      ],
+      "actingTitle": "Destaques",
+      "acting": [
+        {
+          "value": "1º",
+          "description": "período UTFPR"
+        },
+        {
+          "value": "Python e C",
+          "description": "nível intermediário"
+        },
+        {
+          "value": "Hi Tech",
+          "description": "empresa júnior"
+        }
       ]
     },
+    "Services": {
+      "list": []
+    },
     "Costumers": {
-      "sectionTitle": "Clientes",
+      "sectionTitle": "",
       "list": []
     },
     "Partners": {
-      "sectionTitle": "Parceiros",
+      "sectionTitle": "",
       "list": []
     }
   },
   "about": {
-    "title": "Sobre Nós",
-    "description": "Saiba mais sobre nós nesta página.",
-    "sectionTitle": "Título da Seção Sobre",
-    "sectionContent": "Conteúdo da seção sobre."
+    "title": "Sobre Mim",
+    "description": "Estudante de Engenharia da Computação na UTFPR.",
+    "sectionTitle": "Trajetória",
+    "sectionContent": "Bruno Ken Hashimoto."
   },
   "footer": {
     "RedesSociais": [
       {
         "nome": "LinkedIn",
-        "url": "https://www.linkedin.com/company/hïtech/",
+        "url": "https://www.linkedin.com/in/bruno-h-b8b5a73b3/",
         "icon": "assets/linkedinNovo.svg"
       },
       {
         "nome": "Instagram",
-        "url": "https://www.instagram.com/hitech.ej/",
+        "url": "https://www.instagram.com/hash1_m0t0/",
         "icon": "assets/instagramNovo.svg"
+      },
+      {
+        "nome": "WhatsApp",
+        "url": "https://wa.me/5541992623154",
+        "icon": "assets/whatsappLogo.svg"
       }
     ],
-    "title": "Fale Conosco",
-    "description": "Entre em contato conosco.",
-    "email": "Email: contato@hitech.org.br",
-    "telefone": "Telefone: (41) 99850-5198",
-    "divTitle1": "Hi Tech",
-    "endereco": "Sete de Setembro, 3165, Rebouças, Curitiba - Paraná, CEP 80230-901",
-    "cnpj": "CNPJ: 58.322.883/0001-36",
-    "footerBottom": "Hi Tech. Todos os direitos reservados."
+    "title": "Contato",
+    "description": "Entre em contato comigo pelas minhas redes.",
+    "email": "bruno.ken@hitech.org.br",
+    "telefone": "Telefone: (41) 99262-3154",
+    "divTitle1": "Bruno Ken Hashimoto",
+    "endereco": "UTFPR · Curitiba - Paraná",
+    "cnpj": "",
+    "footerBottom": "Bruno Ken Hashimoto · Portfólio Pessoal"
   },
   "whatsapp": {
-    "whatsappNumberLink": "https://wa.me/5541984088811",
-    "whatsappText": "Entre em contato",
+    "whatsappNumberLink": "https://wa.me/5541992623154",
+    "whatsappText": "Fale comigo",
     "whatsappLogoPath": "assets/whatsappLogo.svg"
   }
 }
