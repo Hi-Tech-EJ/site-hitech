@@ -12,8 +12,8 @@ export interface SeoData {
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
-  private readonly siteName = 'Hi Tech';
-  private readonly baseUrl = 'https://hitech.org.br';
+  private readonly siteName = 'Carolina';
+  private readonly baseUrl = 'https://carolina-portfolio.example.com';
 
   constructor(
     private titleService: Title,

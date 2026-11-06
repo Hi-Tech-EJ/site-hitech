@@ -1,25 +1,21 @@
 <section class="contato-text">
     <div class="contact-title">
         <p class="contato">CONTATO</p>
-        <h1>VAMOS CRIAR SUA SOLUÇÃO DIGITAL</h1>
+        <h1>VAMOS CONVERSAR?</h1>
         <p class="mini-text">
-            Conte para a Hi Tech o que sua empresa precisa. A partir
-            disso, entendemos o problema, avaliamos possibilidades e
-            propomos um caminho de desenvolvimento.
+            Quer trocar uma ideia, convidar para um projeto ou só dizer oi? Escreva abaixo e eu respondo o quanto antes.
         </p>
     </div>
 
     <div class="contact-card">
         <div class="card-header">
-            <span class="card-title">&lt;briefing /&gt;</span>
+            <span class="card-title">&lt;olá /&gt;</span>
         </div>
 
         <div class="card-body">
-            <p class="sub-title">Primeira conversa objetiva</p>
+            <p class="sub-title">Conversa sem cerimônia</p>
             <p class="text">
-                Ideal para quem precisa tirar uma ideia do papel, melhorar
-                um processo ou entender se um sistema faz sentido para o
-                momento atual.
+                Seja uma oportunidade de estágio, uma colaboração ou uma dúvida sobre algum projeto, a porta está aberta.
             </p>
         </div>
     </div>
@@ -28,7 +24,7 @@
 <section class="contact-cards">
     <div class="main-text">
         <p>CANAIS</p>
-        <h2>ESCOLHA O MELHOR CAMINHO PARA FALAR COM A GENTE</h2>
+        <h2>ESCOLHA O MELHOR CAMINHO PARA FALAR COMIGO</h2>
     </div>
 
     <div class="cards">
@@ -41,11 +37,10 @@
             </div>
             <h3>EMAIL</h3>
             <p class="body">
-                Envie uma mensagem com contexto do projeto, prazo desejado e principais
-                necessidades.
+                Escreva com o assunto e o que você tem em mente.
             </p>
             <p class="channel-link">
-                <a href="mailto:contato@hitech.org.br">contato&#64;hitech.org.br</a>
+                <a href="mailto:soultcarolina@gmail.com">soultcarolina&#64;gmail.com</a>
             </p>
         </div>
 
@@ -57,13 +52,12 @@
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
             </div>
-            <h3>INSTAGRAM OFICIAL</h3>
+            <h3>INSTAGRAM</h3>
             <p class="body">
-                Acompanhe os bastidores, os projetos e as novidades da empresa
-                no nosso perfil.
+                Acompanhe um pouco do meu dia a dia e dos meus hobbies.
             </p>
             <p class="channel-link">
-                <a href="https://www.instagram.com/hitech.ej/" target="_blank" rel="noopener noreferrer">&#64;hitech.ej</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Meu Instagram</a>
             </p>
         </div>
 
@@ -76,8 +70,7 @@
             </div>
             <h3>LOCALIZAÇÃO</h3>
             <p class="body">
-                Atuação ligada à Universidade Tecnológica Federal do Paraná, com atendimento
-                remoto ou combinado.
+                Estudo na UTFPR e topo conversas presenciais ou online.
             </p>
             <p class="channel-link">Curitiba, PR</p>
         </div>
@@ -87,27 +80,26 @@
 <section class="form">
     <div class="main-block">
         <div class="briefing-content">
-            <span class="briefing-label">BRIEFING INICIAL</span>
+            <span class="briefing-label">MENSAGEM</span>
             <h2>ENVIE UMA MENSAGEM PARA COMEÇARMOS.</h2>
             <p>
-                Preencha nosso formulário e entraremos em contato o mais cedo possível
-                para resolvermos seu problema.
+                Preencha o formulário e seu aplicativo de e-mail abrirá com a mensagem pronta para enviar.
             </p>
 
             <div class="process">
                 <div class="block">
                     <span>01</span>
-                    <p>Entendemos o problema e o contexto.</p>
+                    <p>Leio sua mensagem com atenção.</p>
                 </div>
 
                 <div class="block">
                     <span>02</span>
-                    <p>Mapeamos a solução mais adequada.</p>
+                    <p>Respondo com ideias e dúvidas.</p>
                 </div>
 
                 <div class="block">
                     <span>03</span>
-                    <p>Alinhamos o escopo, prazo e próximos passos.</p>
+                    <p>Combinamos os próximos passos.</p>
                 </div>
             </div>
         </div>
@@ -127,12 +119,12 @@
 
                 <div class="field">
                     <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="description" autocomplete="off" placeholder="Conte rapidamente o que você precisa" formControlName="description" required [attr.aria-invalid]="showError('description')" [attr.aria-describedby]="showError('description') ? 'mensagem-error' : null"></textarea>
+                    <textarea id="mensagem" name="description" autocomplete="off" placeholder="Escreva sua mensagem" formControlName="description" required [attr.aria-invalid]="showError('description')" [attr.aria-describedby]="showError('description') ? 'mensagem-error' : null"></textarea>
                     <app-field-error errorId="mensagem-error" [control]="form.get('description')" [messages]="{ required: 'Conte o que você precisa.', minlength: 'Escreva pelo menos 10 caracteres.' }"></app-field-error>
                 </div>
 
                 <button type="submit" class="enviar" [disabled]="isLoading" [attr.aria-busy]="isLoading">
-                    {{ isLoading ? 'Enviando...' : 'Enviar briefing' }}
+                    {{ isLoading ? 'Enviando...' : 'Enviar mensagem' }}
                 </button>
             </form>
         </section>

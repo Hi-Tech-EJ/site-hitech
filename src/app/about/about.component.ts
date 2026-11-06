@@ -23,7 +23,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   form: FormGroup;
   isLoading = false;
 
-  private apiUrl = "https://script.google.com/macros/s/AKfycbw7bvxnEtAzzHDI5jykNIoo2iTIT0ixBY-wJigVsAqboPD5jRc7ZOBGqfeCVVQcn9deUA/exec";
+  private apiUrl = "";
 
   eventPhotos = [
     { url: 'assets/events/foto2.jpg', title: 'Encontro do time Hi Tech' },

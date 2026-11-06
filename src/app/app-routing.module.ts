@@ -14,9 +14,9 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       seo: {
-        title: 'Empresa Júnior de Tecnologia e Soluções Digitais',
+        title: 'Portfólio de Desenvolvimento Web',
         description:
-          'A Hi Tech cria sites, sistemas web, aplicativos mobile e automações. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
+          'Portfólio da Carolina: estudante de tecnologia, projetos de desenvolvimento web, trajetória e hobbies.',
       },
     },
   },
@@ -28,9 +28,9 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       seo: {
-        title: 'Sobre Nós e Processo Seletivo',
+        title: 'Sobre mim',
         description:
-          'Somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores. Conheça a Hi Tech e faça parte do time.',
+          'Conheça minha trajetória acadêmica, meus hobbies e o que me move.',
       },
     },
   },
@@ -39,9 +39,9 @@ const routes: Routes = [
     component: ServicesComponent,
     data: {
       seo: {
-        title: 'Serviços: Sites, Sistemas Web e Automações',
+        title: 'Projetos',
         description:
-          'Sites e sistemas web, sistemas legados, apps mobile, e-commerce, automações, análise de dados, autoatendimento e configuração de e-mail, domínio e hospedagem.',
+          'Projetos que desenvolvi: sites, sistemas web e experimentos.',
       },
     },
   },
@@ -50,9 +50,9 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       seo: {
-        title: 'Contato e Briefing',
+        title: 'Contato',
         description:
-          'Envie um briefing para a Hi Tech. Conte o que sua empresa precisa e proporemos um caminho de desenvolvimento.',
+          'Envie uma mensagem para a Carolina. Vou adorar conversar com você.',
       },
     },
   },
@@ -67,7 +67,7 @@ const routes: Routes = [
       standalone: true,
       seo: {
         title: 'Links',
-        description: 'Instagram, LinkedIn e site da Hi Tech.',
+        description: 'Instagram, LinkedIn e site da Carolina.',
         noindex: true,
       },
     },

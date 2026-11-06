@@ -21,11 +21,11 @@ interface LinkItem {
   styleUrl: './links.component.scss'
 })
 export class LinksComponent {
-  logo = 'assets/logo-claro.svg';
+  logo = 'assets/logo-carolina.svg';
   links: LinkItem[] = [];
 
   /** Endereco do portfolio. Vazio = o botao nao aparece. */
-  private readonly portfolioUrl = 'https://www.canva.com/design/DAHYNCBZRXY/w_y0pGI5mLlHyDmf3UzbKQ/view?utlId=h0b20fa2618';
+  private readonly portfolioUrl = '';
 
   constructor(templateTextService: templateTextService) {
     templateTextService.templateText$.subscribe((data) => {

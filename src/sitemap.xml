@@ -4,22 +4,22 @@
        entao nao entra aqui: listar as duas dividiria o sinal entre URLs
        duplicadas. -->
   <url>
-    <loc>https://hitech.org.br/</loc>
+    <loc>https://carolina-portfolio.example.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hitech.org.br/about</loc>
+    <loc>https://carolina-portfolio.example.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hitech.org.br/services</loc>
+    <loc>https://carolina-portfolio.example.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hitech.org.br/contact</loc>
+    <loc>https://carolina-portfolio.example.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -139,12 +139,12 @@ section {
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 5px 6px 0px #0046b3;
+        box-shadow: 5px 6px 0px #8f1a49;
       }
 
       &:active {
         transform: translateY(2px);
-        box-shadow: 1px 1px 0px #0046b3;
+        box-shadow: 1px 1px 0px #8f1a49;
       }
     }
 
@@ -920,7 +920,7 @@ section {
     &:focus-within {
       translate: 0 -4px;
       border-color: $color-support;
-      box-shadow: 0 16px 36px rgba(9, 37, 77, 0.14);
+      box-shadow: 0 16px 36px rgba(43, 10, 61, 0.14);
 
       &::before {
         opacity: 0.3;
@@ -1403,6 +1403,46 @@ section {
 
     .contact-left h2 {
       font-size: 24px;
+    }
+  }
+}
+
+
+/* Secao de projetos e stack (portfolio) */
+#services-cards .project-role {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: $color-muted;
+}
+
+#stack {
+  padding: 48px clamp(24px, 4vw, 64px);
+  text-align: center;
+
+  .stack-list {
+    list-style: none;
+    margin: 32px auto 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .stack-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #ffffff;
+    border: 2.5px solid #000000;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 #000000;
+    font-weight: 700;
+    color: $color-support;
+
+    i {
+      font-size: 1.8rem;
     }
   }
 }

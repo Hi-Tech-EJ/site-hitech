@@ -1,5 +1,5 @@
 // Cor Primária
-$color-primary: #3690f7;
+$color-primary: #e8467c;
 $color-primary-hover: darken($color-primary, 10%);
 $color-primary-border: darken($color-primary, 20%);
 $color-primary-light-1: lighten($color-primary, 10%);
@@ -17,7 +17,7 @@ $color-secondary-dark-1: darken($color-secondary, 10%);
 $color-secondary-dark-2: darken($color-secondary, 20%);
 
 // Cor de Suporte
-$color-support: #09254d;
+$color-support: #2b0a3d;
 $color-support-hover: lighten($color-support, 60%);
 $color-support-border: lighten($color-support, 20%);
 $color-support-light-1: lighten($color-support, 10%);
@@ -36,7 +36,7 @@ $color-tertiary-dark-1: darken($color-tertiary, 10%);
 $color-tertiary-dark-2: darken($color-tertiary, 20%);
 
 // Cor Quaternária
-$color-quaternary: #41c5c6;
+$color-quaternary: #7c5cff;
 $color-quaternary-hover: darken($color-quaternary, 10%);
 $color-quaternary-border: darken($color-quaternary, 20%);
 $color-quaternary-light-1: lighten($color-quaternary, 10%);
@@ -72,10 +72,10 @@ $color-sectenary-dark-1: darken($color-sectenary, 10%);
 $color-sectenary-dark-2: darken($color-sectenary, 20%);
 
 // Acessibilidade (contraste medido sobre os fundos usados no site)
-$color-action: #1a5fd0;          // azul de acao: 5,85:1 com texto branco, 5,3:1 sobre #f4f4f4
-$color-action-border: #0046b3;
+$color-action: #b8225f;          // azul de acao: 5,85:1 com texto branco, 5,3:1 sobre #f4f4f4
+$color-action-border: #8f1a49;
 $color-muted: #554949;           // texto secundario: 5,4:1 sobre #f1edec
 $color-placeholder: #666666;     // 4,9:1 sobre #ededed
 $color-field-border: #767676;    // 3:1 minimo contra o fundo do campo e do cartao
 $color-error: #b3261e;           // 6,5:1 sobre branco
-$color-card-tint: #9cc9fb;       // azul do cartao de servico: texto #554949 a 5:1
+$color-card-tint: #f6b8d0;       // azul do cartao de servico: texto #554949 a 5:1

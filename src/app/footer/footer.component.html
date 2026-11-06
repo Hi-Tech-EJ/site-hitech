@@ -1,24 +1,24 @@
 <footer>
   <div class="footer-container">
     <div class="footer-brand">
-      <img class="footer-logo" [src]="logoAzulClaro" alt="Logo Hi Tech" />
-      <p class="footer-tagline">Empresa Júnior de Tecnologia. Ideias em sistemas reais.</p>
+      <img class="footer-logo" [src]="logoAzulClaro" alt="Carolina" />
+      <p class="footer-tagline">Estudante de tecnologia. Curiosidade em código.</p>
     </div>
 
     <nav class="footer-col" aria-label="Rodapé">
       <h2 class="footer-heading">Navegue</h2>
       <ul>
         <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/about">Sobre Nós</a></li>
-        <li><a routerLink="/services">Serviços</a></li>
+        <li><a routerLink="/about">Sobre mim</a></li>
+        <li><a routerLink="/services">Projetos</a></li>
         <li><a routerLink="/contact">Contato</a></li>
       </ul>
     </nav>
 
     <div class="footer-col">
-      <h2 class="footer-heading">Fale com a gente</h2>
+      <h2 class="footer-heading">Fale comigo</h2>
       <ul>
-        <li><a href="mailto:contato@hitech.org.br">contato&#64;hitech.org.br</a></li>
+        <li><a href="mailto:soultcarolina@gmail.com">soultcarolina&#64;gmail.com</a></li>
         <li *ngFor="let rede of templateText.RedesSociais">
           <a [href]="rede.url" target="_blank" rel="noopener noreferrer" class="social-link">
             <img [src]="rede.icon" alt="" aria-hidden="true" class="social-icon" />
@@ -30,7 +30,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Hi Tech. Todos os direitos reservados.</p>
+    <p>&copy; {{ currentYear }} Carolina. Todos os direitos reservados.</p>
     <p>UTFPR &middot; Curitiba, PR</p>
   </div>
 </footer>

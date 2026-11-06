@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais</title>
+    <title>Carolina | Portfólio de Desenvolvimento Web</title>
     <base href="/" />
     <script>document.documentElement.classList.add("js")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,45 +10,47 @@
     <!-- SEO básico -->
     <meta
       name="description"
-      content="A Hi Tech é uma empresa júnior de tecnologia que cria sites, sistemas web, aplicativos mobile e automações. Solicite um briefing e tire seu projeto do papel."
+      content="Portfólio pessoal da Carolina: estudante de tecnologia, projetos de desenvolvimento web, trajetória acadêmica e hobbies."
     />
     <meta
       name="keywords"
-      content="empresa júnior, tecnologia, desenvolvimento de sites, sistemas web, automação, aplicativos mobile, soluções digitais, Curitiba, UTFPR"
+      content="portfólio, desenvolvedora, Angular, desenvolvimento web, Curitiba, UTFPR"
     />
-    <meta name="author" content="Hi Tech" />
+    <meta name="author" content="Carolina" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://hitech.org.br/" />
+    <link rel="canonical" href="https://carolina-portfolio.example.com/" />
 
     <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Hi Tech" />
-    <meta property="og:title" content="Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais" />
+    <meta property="og:site_name" content="Carolina" />
+    <meta property="og:title" content="Carolina | Portfólio de Desenvolvimento Web" />
     <meta
       property="og:description"
-      content="Criamos sites, sistemas web, aplicativos mobile e automações. Solicite um briefing e tire seu projeto do papel."
+      content="Conheça meus projetos, minha trajetória e entre em contato."
     />
-    <meta property="og:url" content="https://hitech.org.br/" />
+    <meta property="og:url" content="https://carolina-portfolio.example.com/" />
     <!-- Imagem da prévia ao compartilhar o link (WhatsApp, LinkedIn etc).
          Arte 1200x630 em src/assets/og-image.png. -->
-    <meta property="og:image" content="https://hitech.org.br/assets/og-image.png" />
+    <meta property="og:image" content="https://carolina-portfolio.example.com/assets/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Hi Tech, empresa júnior de tecnologia: sites, sistemas web, aplicativos mobile e automações" />
+    <meta property="og:image:alt" content="Portfólio da Carolina, estudante de tecnologia" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter / X (title e description são atualizados por rota no SeoService) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hi Tech | Empresa Júnior de Tecnologia e Soluções Digitais" />
+    <meta name="twitter:title" content="Carolina | Portfólio de Desenvolvimento Web" />
     <meta
       name="twitter:description"
-      content="Criamos sites, sistemas web, aplicativos mobile e automações. Solicite um briefing e tire seu projeto do papel."
+      content="Conheça meus projetos, minha trajetória e entre em contato."
     />
-    <meta name="twitter:image" content="https://hitech.org.br/assets/og-image.png" />
+    <meta name="twitter:image" content="https://carolina-portfolio.example.com/assets/og-image.png" />
 
     <link rel="icon" type="image/png" href="assets/logo.ico" />
     <link rel="shortcut icon" href="assets/logo.ico" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css" />
 
     <!-- Preload das fontes principais para reduzir o tempo de renderização do texto -->
     <link
@@ -66,53 +68,17 @@
       crossorigin="anonymous"
     />
 
-    <!-- Dados estruturados (Schema.org). O alternateName cobre quem busca a
-         marca sem espaço ou com a grafia antiga (Hï Tech). -->
+    <!-- Dados estruturados (Schema.org) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://hitech.org.br/#organization",
-            "name": "Hi Tech",
-            "alternateName": ["HiTech", "Hï Tech"],
-            "url": "https://hitech.org.br/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://hitech.org.br/assets/logo-512.png",
-              "width": 512,
-              "height": 512
-            },
-            "image": "https://hitech.org.br/assets/og-image.png",
-            "description": "Empresa júnior de tecnologia que cria sites, sistemas web, aplicativos mobile e automações.",
-            "email": "contato@hitech.org.br",
-            "sameAs": ["https://www.instagram.com/hitech.ej/"],
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Sete de Setembro, 3165 - Rebouças",
-              "addressLocality": "Curitiba",
-              "addressRegion": "PR",
-              "postalCode": "80230-901",
-              "addressCountry": "BR"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service",
-              "email": "contato@hitech.org.br",
-              "availableLanguage": "pt-BR"
-            }
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://hitech.org.br/#website",
-            "name": "Hi Tech",
-            "alternateName": ["HiTech", "Hï Tech"],
-            "url": "https://hitech.org.br/",
-            "inLanguage": "pt-BR",
-            "publisher": { "@id": "https://hitech.org.br/#organization" }
-          }
-        ]
+        "@type": "Person",
+        "@id": "https://carolina-portfolio.example.com/#person",
+        "name": "Carolina",
+        "url": "https://carolina-portfolio.example.com/",
+        "email": "soultcarolina@gmail.com",
+        "jobTitle": "Estudante de tecnologia",
+        "address": { "@type": "PostalAddress", "addressLocality": "Curitiba", "addressRegion": "PR", "addressCountry": "BR" }
       }
     </script>
   </head>

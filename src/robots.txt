@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hitech.org.br/sitemap.xml
+Sitemap: https://carolina-portfolio.example.com/sitemap.xml

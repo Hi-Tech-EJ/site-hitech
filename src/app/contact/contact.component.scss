@@ -63,7 +63,7 @@
   background: linear-gradient(160deg, #d3fcff, #ffffff);
   border: 1px solid #9fd6da;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(9, 37, 77, 0.10);
+  box-shadow: 0 10px 30px rgba(43, 10, 61, 0.10);
 }
 
 .card-header {
@@ -154,7 +154,7 @@
   &:hover,
   &:focus-within {
     border-color: $color-support;
-    box-shadow: 0 10px 28px rgba(9, 37, 77, 0.12);
+    box-shadow: 0 10px 28px rgba(43, 10, 61, 0.12);
   }
 
   .channel-icon {
@@ -474,7 +474,7 @@
 
   .contact-card {
     padding: 24px 22px 28px;
-    box-shadow: 0 6px 20px rgba(9, 37, 77, 0.10);
+    box-shadow: 0 6px 20px rgba(43, 10, 61, 0.10);
   }
 
   .contact-cards {

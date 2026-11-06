@@ -1,101 +1,150 @@
 {
   "core": {
     "LogoEmpresa": {
-      "src": "assets/logoNova1.svg",
-      "alt": "Logo da empresa Hi Tech"
+      "src": "assets/logo-carolina.svg",
+      "alt": "Logo do portfólio de Carolina"
     }
   },
   "home": {
-    "heroSubtitle": "HI TECH - EMPRESA JÚNIOR",
-    "heroTitle" : "TECNOLOGIA QUE TRANSFORMA IDEIAS EM SISTEMAS REAIS.",
-    "heroDescription" : "Desenvolvemos soluções digitais sob medida para aqueles que querem organizar processos, validar produtos e gerar impacto com tecnologia de verdade.",
-    "btnServicesText": "Conheça nossos serviços",
-    "btnContactText": "Fale com a gente",
+    "heroSubtitle": "PORTFÓLIO PESSOAL",
+    "heroTitle": "OLÁ, EU SOU A CAROLINA.",
+    "heroDescription": "Estudante de Sistemas de Informação construindo soluções com IA. Aqui você conhece minha trajetória, meus projetos e um pouco do que me move fora das telas.",
+    "btnServicesText": "Ver meus projetos",
+    "btnContactText": "Fale comigo",
     "heroImage": {
-      "src": "assets/img-home-1200.jpg",
-      "srcset": "assets/img-home-800.jpg 800w, assets/img-home-1200.jpg 1200w, assets/img-home-1600.jpg 1600w, assets/img-home-2000.jpg 2000w",
-      "sizes": "(max-width: 900px) calc(100vw - 76px), (max-width: 1840px) 64vw, 1180px",
-      "alt": "Equipe Hi Tech reunida segurando a bandeira da empresa",
-      "caption": ">> Times que constroem o futuro"
+      "src": "assets/carolina-perfil.webp.jpg",
+      "alt": "Foto de perfil da Carolina",
+      "caption": ""
     },
     "features": [
       {
         "icon": "assets/feature-1.svg",
-        "title": "Excelência técnica",
-        "description": "Aplicamos boas práticas para entregar soluções seguras, escaláveis e fáceis de evoluir."
+        "title": "Maratonar séries",
+        "description": "Sempre tem uma série nova na minha lista. A favorita do momento: Silo - AppleTV."
       },
       {
         "icon": "assets/feature-2.svg",
-        "title": "Pessoas no centro",
-        "description": "Acreditamos em aprendizado, colaboração e protagonismo em todas as etapas do projeto."
+        "title": "Família",
+        "description": "Meu tempo favorito é com meu filho e minhas irmãs."
       },
       {
         "icon": "assets/feature-3.svg",
-        "title": "Impacto real",
-        "description": "Geramos valor para empresas, clientes e comunidade por meio de tecnologia aplicada."
+        "title": "Musculação",
+        "description": "Treino como forma de disciplina e cuidado comigo."
+      },
+      {
+        "icon": "assets/feature-4.svg",
+        "title": "Criar conteúdo",
+        "description": "Amo desenvolver conteúdo pras redes sociais: pensar, roteirizar e postar."
       }
     ],
     "about": {
-        "subTitle": "Quem somos",
-        "title": "A Hi Tech conecta talento universitário e mercado para desenvolver soluções digitais de impacto.",
-        "description":"Somos uma empresa júnior de tecnologia formada por estudantes que vivem projetos reais desde o primeiro contato com o cliente até a entrega final. Nosso trabalho combina método, comunicação e energia jovem para resolver problemas com clareza.",
-        "linkText": "Conheça a empresa",
-        "activityIcon" : "assets/hitech-logo-horizontal.png",
-        "activity":["Atuação prática em desenvolvimento, design e gestão.", "Projetos pensados para resolver dores reais do cliente.","Formação de profissionais preparados para o mercado."],
-        "actingTitle" : "Nossa atuação",
-        "acting" : [
-          { "value": "+10" ,
-            "description": "projetos entregues" },
-          { "value": "+10" ,
-            "description": "membros formados" },
-          { "value": "8" ,
-            "description": "frentes de serviço" }
-        ]
-      },
-    "Services": {
-      "list": [
+      "subTitle": "Quem sou eu",
+      "title": "Oi, eu sou a Carol!",
+      "description": "Estudo Sistemas de Informação na UTFPR, em Curitiba, e transformo ideias em produtos reais com tecnologia e inteligência artificial. Entre a faculdade, projetos acadêmicos e clientes de verdade, aprendi que código bom é o que resolve o problema de alguém.",
+      "linkText": "Conheça minha história",
+      "activityIcon": "assets/logo-carolina.svg",
+      "activity": [
+        "· Empresa Júnior Hi Tech: contato com projetos para clientes, como assessora de Gestão de Pessoas.",
+        "· Projeto de Extensão Atelier AP[x]: dockerização de aplicações e pipeline.",
+        "· PetCoce: participação no desenvolvimento do tripé - educação, pesquisa e extensão.",
+        "· Hoje: empreendendo com clientes reais, desenvolvendo soluções com IA para negócios de verdade."
+      ],
+      "actingTitle": "Em números",
+      "acting": [
+        {
+          "value": "+4",
+          "description": "projetos feitos"
+        },
+        {
+          "value": "7",
+          "description": "tecnologias na stack"
+        },
+        {
+          "value": "∞",
+          "description": "xícaras de café"
+        }
       ]
     },
-    "Costumers": {
-      "sectionTitle": "Clientes",
-      "list": []
-    },
-    "Partners": {
-      "sectionTitle": "Parceiros",
-      "list": []
-    }
+    "projetos": [
+      {
+        "title": "Hi Tech",
+        "description": "Empresa júnior de tecnologia da UTFPR. Contato com projetos para clientes reais.",
+        "role": "Gestão de Pessoas - Assessora"
+      },
+      {
+        "title": "Atelier AP[x]",
+        "description": "Projeto de extensão: dockerização de aplicações e criação de pipeline.",
+        "role": "Desenvolvimento e infraestrutura"
+      },
+      {
+        "title": "PetCoce",
+        "description": "Projeto que une educação, pesquisa e extensão.",
+        "role": "Desenvolvimento"
+      },
+      {
+        "title": "Soluções com IA",
+        "description": "Soluções com inteligência artificial para negócios reais, com clientes de verdade.",
+        "role": "Empreendedora"
+      }
+    ],
+    "stack": [
+      {
+        "name": "Angular",
+        "icon": "devicon-angular-plain colored"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "devicon-typescript-plain colored"
+      },
+      {
+        "name": "HTML/CSS",
+        "icon": "devicon-html5-plain colored"
+      },
+      {
+        "name": "Docker",
+        "icon": "devicon-docker-plain colored"
+      },
+      {
+        "name": "Flutter",
+        "icon": "devicon-flutter-plain colored"
+      },
+      {
+        "name": "Git",
+        "icon": "devicon-git-plain colored"
+      },
+      {
+        "name": "Claude Code",
+        "icon": ""
+      }
+    ]
   },
   "about": {
-    "title": "Sobre Nós",
-    "description": "Saiba mais sobre nós nesta página.",
-    "sectionTitle": "Título da Seção Sobre",
-    "sectionContent": "Conteúdo da seção sobre."
+    "title": "Sobre mim",
+    "description": "Um pouco mais sobre quem eu sou e o que eu faço.",
+    "sectionTitle": "Minha trajetória",
+    "sectionContent": "Da empresa júnior aos clientes reais, cada etapa me ensinou algo novo sobre tecnologia, pessoas e negócios."
   },
   "footer": {
     "RedesSociais": [
       {
         "nome": "LinkedIn",
-        "url": "https://www.linkedin.com/company/hïtech/",
+        "url": "https://www.linkedin.com/in/carolina-souza-0b8252246/",
         "icon": "assets/linkedinNovo.svg"
       },
       {
         "nome": "Instagram",
-        "url": "https://www.instagram.com/hitech.ej/",
+        "url": "https://www.instagram.com/carolso.c/",
         "icon": "assets/instagramNovo.svg"
       }
     ],
-    "title": "Fale Conosco",
-    "description": "Entre em contato conosco.",
-    "email": "Email: contato@hitech.org.br",
-    "telefone": "Telefone: (41) 99850-5198",
-    "divTitle1": "Hi Tech",
-    "endereco": "Sete de Setembro, 3165, Rebouças, Curitiba - Paraná, CEP 80230-901",
-    "cnpj": "CNPJ: 58.322.883/0001-36",
-    "footerBottom": "Hi Tech. Todos os direitos reservados."
-  },
-  "whatsapp": {
-    "whatsappNumberLink": "https://wa.me/5541984088811",
-    "whatsappText": "Entre em contato",
-    "whatsappLogoPath": "assets/whatsappLogo.svg"
+    "title": "Fale comigo",
+    "description": "Bora conversar sobre projetos, ideias ou oportunidades?",
+    "email": "Email: soultcarolina@gmail.com",
+    "telefone": "",
+    "divTitle1": "Carolina",
+    "endereco": "Curitiba - Paraná",
+    "cnpj": "",
+    "footerBottom": "Carolina. Todos os direitos reservados."
   }
 }

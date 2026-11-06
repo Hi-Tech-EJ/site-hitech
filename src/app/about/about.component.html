@@ -2,67 +2,24 @@
 <div class="about-content">
 
   <div class="main-title">
-  <p class="subtitle">PROCESSO SELETIVO</p>
-  <h1>FAÇA<br>PARTE DA<br>HI TECH</h1>
-  <p class="description">A Hi Tech é um espaço para aprender fazendo: projetos
-  reais, tecnologia aplicada e gente disposta a crescer junto.</p>
+  <p class="subtitle">SOBRE MIM</p>
+  <h1>OI,<br>EU SOU A<br>CAROLINA</h1>
+  <p class="description">Estudante de Sistemas de Informação na UTFPR, em Curitiba, sempre
+  atrás do próximo projeto. Aqui conto um pouco da minha história e do que gosto de fazer.</p>
   </div>
 
-  <div class="form-wrapper">
-    <img class="background-shape" src="assets/Frame 2.svg" alt="" aria-hidden="true" />
-
-  <div class="form-card">
-  <form [formGroup]="form" (ngSubmit)="publishTask()">
-
-      <div class="text">
-        <p>Receba o aviso da próxima seleção</p>
-      </div>
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="name" autocomplete="name" placeholder="Digite seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'nome-error' : null" />
-        <app-field-error errorId="nome-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
-      </div>
-
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
-        <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
-      </div>
-
-      <div class="form-group">
-        <label for="periodo">Período da Faculdade</label>
-          <select id="periodo" name="period" formControlName="period" required [attr.aria-invalid]="showError('period')" [attr.aria-describedby]="showError('period') ? 'periodo-error' : null">
-            <option value="" disabled selected>Selecione um período</option>
-            <option value="1">1º Período</option>
-            <option value="2">2º Período</option>
-            <option value="3">3º Período</option>
-            <option value="4">4º Período</option>
-            <option value="5">5º Período</option>
-            <option value="6">6º Período</option>
-            <option value="7">7º Período</option>
-            <option value="8">8º Período</option>
-            <option value="9">9º Período</option>
-            <option value="10">10º Período</option>
-          </select>
-        <app-field-error errorId="periodo-error" [control]="form.get('period')" [messages]="{ required: 'Selecione o período em que você está.' }"></app-field-error>
-      </div>
-
-      <button type="submit" [disabled]="isLoading" [attr.aria-busy]="isLoading">{{ isLoading ? 'Enviando...' : 'Quero ser avisado' }}</button>
-    </form>
-    </div>
-  </div>
   </div>
 
   <section id="aboutUs">
     <div class="aboutUs-content">
       <div class="aboutUs-left">
         <div class="aboutUs-header">
-        <span class="aboutUs-subtitle">SOBRE NÓS</span>
-        <h2 class="aboutUs-title">somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores.</h2>
-        <p class="aboutUs-description">Unimos desenvolvimento, design, gestão e cultura de comunidade
-                                     para entregar demandas em sistemas úteis. Nosso foco é
-                                     entregar valor para clientes e criar uma experiência intensa
-                                     de aprendizado para membros.</p>
+        <span class="aboutUs-subtitle">QUEM SOU EU</span>
+        <h2 class="aboutUs-title">gosto de transformar ideias em coisas que funcionam.</h2>
+        <p class="aboutUs-description">Meu interesse por tecnologia começou por curiosidade em entender
+                                     como sites e aplicativos funcionam. Hoje estudo na UTFPR e
+                                     participo da empresa júnior Hi Tech e de outros projetos, onde coloco a teoria em prática
+                                     com projetos reais e trabalho em equipe.</p>
         </div>
       </div>
     </div>
@@ -70,67 +27,60 @@
 
   <section id="review-cards">
     <div class="review-header">
-      <span class="review-subtitle">QUEM PASSOU POR AQUI</span>
-      <h2 class="review-title">review de membros antigos</h2>
+      <span class="review-subtitle">TRAJETÓRIA</span>
+      <h2 class="review-title">meu caminho até aqui</h2>
     </div>
-    <div class="review-grid" #reviewGrid tabindex="0" role="region" aria-label="Depoimentos de ex-membros">
+    <div class="review-grid" #reviewGrid tabindex="0" role="region" aria-label="Trajetória acadêmica e profissional">
       <div class="review-card">
-        <p class="review-text">“Participar da Hi Tech foi uma experiência transformadora. Desde o primeiro ano da faculdade estando na EJ, tive contato com empresas e desafios reais, desenvolvendo habilidades em negócios, vendas, tecnologia, comunicação e liderança. Além do crescimento profissional, essa experiência me proporcionou grandes amizades e amadurecimento que levo comigo até hoje.” </p>
+        <p class="review-text">Comecei a faculdade na UTFPR, em Curitiba, com muita vontade de aprender como a tecnologia resolve problemas reais.</p>
         <div class="author-info">
-          <span class="author-name">Cecília Moreira</span>
-          <span class="author-role">Ex-Gerente de Negócios</span>
+          <span class="author-name">Graduação</span>
+          <span class="author-role">UTFPR · Curitiba</span>
         </div>
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“Mesmo já tendo experiências profissionais de desenvolvimento antes da Hi Tech, ainda pude aprender muito sobre desenvolvimento profissional, bem como poder passar por posições de gestão de pessoas e projetos reais, me permitindo desenvolver frentes que no mercado sênior desenvolveria apenas depois de muitos anos de carreira.” </p>
+        <p class="review-text">Entrei na Hi Tech, empresa júnior de tecnologia, onde aprendi na prática sobre trabalho em equipe, prazos, clientes e boas práticas.</p>
         <div class="author-info">
-          <span class="author-name">Lucas Orlikoski</span>
-          <span class="author-role">Ex-Presidente</span>
+          <span class="author-name">Empresa júnior</span>
+          <span class="author-role">Hi Tech</span>
         </div>
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“A Hi Tech me permitiu desenvolver habilidades que eu não teria a chance de explorar em outros lugares. Além de atuar com as mãos na massa em projetos, cresci como pessoa, como integrante de uma equipe e como líder de um time que sabe ir longe!” </p>
+        <p class="review-text">Pratiquei HTML, CSS e Angular, a rodar aplicações com Docker e a versionar tudo com Git, como neste próprio portfólio.</p>
         <div class="author-info">
-          <span class="author-name">Ana Roviero</span>
-          <span class="author-role">Ex-Gerente de Marketing</span>
+          <span class="author-name">Habilidades</span>
+          <span class="author-role">Angular · Docker · Git</span>
         </div>
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="review-card">
-        <p class="review-text">“A Hi Tech foi onde aprendi, na prática, a transformar estratégia em resultado. Como cofundador e vice-presidente, pude contribuir com a construção da empresa, atuar com qualidade de software e desenvolvimento backend, além de desenvolver uma visão muito mais completa sobre tecnologia, liderança e gestão.” </p>
+        <p class="review-text">Quero seguir aprendendo, contribuir com projetos que importam e crescer junto com boas pessoas.</p>
         <div class="author-info">
-          <span class="author-name">Saulo Peretto</span>
-          <span class="author-role">Ex-Vice-Presidente</span>
+          <span class="author-name">Próximos passos</span>
+          <span class="author-role">Sempre aprendendo</span>
         </div>
         <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <section class="events-section">
-  <div class="events-header">
-    <span class="events-subtitle">EVENTOS</span>
-    <h2 class="events-title">FOTOS DE EVENTOS</h2>
-  </div>
-
-  <div class="carousel-wrapper">
-    <button class="carousel-btn prev-btn" (click)="scrollCarousel(-1)" aria-label="Anterior">
-      &#10094;
-    </button>
-      <div class="carousel-container" #carousel (touchstart)="pauseAutoplay()">
-      <div class="event-card" *ngFor="let photo of eventPhotos">
-        <img [src]="photo.url" [alt]="photo.title" loading="lazy" decoding="async" />
-        <div class="event-card-caption" *ngIf="photo.title">
-          <span>{{ photo.title }}</span>
-        </div>
+  <section id="review-cards" class="hobbies">
+    <div class="review-header">
+      <span class="review-subtitle">FORA DAS TELAS</span>
+      <h2 class="review-title">hobbies e coisas que gosto</h2>
+    </div>
+    <div class="review-grid" #hobbyGrid tabindex="0" role="region" aria-label="Hobbies">
+      <div class="review-card">
+        <p class="review-text">Uma boa playlist / podcast melhora muito meu dia.</p>
+        <div class="author-info"><span class="author-name">Música</span><span class="author-role">Trilha sonora do dia</span></div>
+      </div>
+      <div class="review-card">
+        <p class="review-text">Um bom livro ou série no fim do dia, de preferência debaixo das cobertas quando está friozinho.</p>
+        <div class="author-info"><span class="author-name">Livros e séries</span><span class="author-role">Café incluso</span></div>
       </div>
     </div>
-    <button class="carousel-btn next-btn" (click)="scrollCarousel(1)" aria-label="Próximo">
-      &#10095;
-    </button>
-  </div>
-</section>
+  </section>
 
 </article>

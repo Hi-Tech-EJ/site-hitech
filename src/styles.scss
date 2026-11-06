@@ -96,7 +96,7 @@ body {
 /* Foco visivel em qualquer elemento interativo: contorno azul-marinho sobre
    os fundos claros do site (15:1 sobre branco). Nos blocos escuros, amarelo. */
 :focus-visible {
-  outline: 3px solid #09254d;
+  outline: 3px solid #2b0a3d;
   outline-offset: 3px;
 }
 
@@ -113,7 +113,7 @@ body {
 
 ::selection {
   background: #ffc145;
-  color: #09254d;
+  color: #2b0a3d;
 }
 
 /* Menos movimento: o estado muda, a animacao nao. */

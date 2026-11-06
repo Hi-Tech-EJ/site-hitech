@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   isLoading = false;
   texts: string[] = []; // Textos para o efeito de digitação
   services: CompanyServices[] = [];
+  projetos: { title: string; description: string; role: string }[] = [];
+  stack: { name: string; icon: string }[] = [];
   costumers: CostumersAndPartners[] = [];
   partners: CostumersAndPartners[] = [];
   constructor(
@@ -48,9 +50,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.templateTextService.templateText$.subscribe((data) => {
       this.templateText = data.home;
-      this.services = this.templateText.Services.list;
-      this.costumers = this.templateText.Costumers.list;
-      this.partners = this.templateText.Partners.list;
+      this.services = this.templateText.Services?.list ?? [];
+      this.projetos = this.templateText.projetos ?? [];
+      this.stack = this.templateText.stack ?? [];
+      this.costumers = this.templateText.Costumers?.list ?? [];
+      this.partners = this.templateText.Partners?.list ?? [];
     });
 
     this.form = this.formBuilder.group({
@@ -79,7 +83,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.stopMotion?.();
   }
 
-  private apiUrl = "https://script.google.com/macros/s/AKfycbwSrUCO9dx6bTOBEjaUHYMgQ0i6nblIku5bquQoOYDmioYzmjCd1PNG_Io__eYXsn-i7Q/exec";
+  private apiUrl = "";
 
   showError(name: string): boolean {
     const control = this.form.get(name);
@@ -102,7 +106,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         description: this.form.value.description
       });
 
-      this.toastr.success('Mensagem enviada com sucesso!');
+      this.toastr.success('Abrindo seu aplicativo de e-mail com a mensagem pronta.');
       this.form.reset();
     } catch (error) {
       this.toastr.error('Não conseguimos enviar agora. Confira sua conexão e tente de novo.');

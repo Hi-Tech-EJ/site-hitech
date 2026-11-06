@@ -14,7 +14,7 @@ export class ContactComponent {
   form: FormGroup;
   isLoading = false;
 
-  private apiUrl = "https://script.google.com/macros/s/AKfycbwSrUCO9dx6bTOBEjaUHYMgQ0i6nblIku5bquQoOYDmioYzmjCd1PNG_Io__eYXsn-i7Q/exec";
+  private apiUrl = "";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,7 +51,7 @@ export class ContactComponent {
         description: this.form.value.description
       });
 
-      this.toastr.success('Mensagem enviada com sucesso!');
+      this.toastr.success('Abrindo seu aplicativo de e-mail com a mensagem pronta.');
       this.form.reset();
 
     } catch (error) {

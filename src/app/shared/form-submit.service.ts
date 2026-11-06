@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 
+/** E-mail que recebe as mensagens do formulario. Troque pelo seu. */
+export const CONTACT_EMAIL = 'soultcarolina@gmail.com';
+
 @Injectable({ providedIn: 'root' })
 export class FormSubmitService {
   /**
-   * Envia o formulario para o Apps Script. Com mode 'no-cors' a resposta e
-   * opaca: so e possivel detectar falha de rede, nao um erro devolvido pelo
-   * script. Para confirmar o recebimento de verdade, o script precisa
-   * responder com CORS e este metodo passar a ler o status.
+   * Portfolio sem backend: em vez de enviar para um Apps Script, abre o
+   * aplicativo de e-mail do visitante com a mensagem ja preenchida.
+   * O primeiro parametro (url) e ignorado e existe so para manter a
+   * assinatura antiga dos componentes.
    */
-  async send(url: string, payload: object): Promise<void> {
-    await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
-      body: JSON.stringify({ ...payload, date: new Date().toISOString() })
-    });
+  async send(_url: string, payload: { name?: string; email?: string; description?: string; [k: string]: unknown }): Promise<void> {
+    const subject = `Contato pelo portfolio - ${payload.name ?? ''}`;
+    const body = `${payload.description ?? ''}\n\n${payload.name ?? ''}\n${payload.email ?? ''}`;
+    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (typeof window !== 'undefined') {
+      window.location.href = href;
+    }
   }
 }
